@@ -77,14 +77,14 @@
             <td><strong i18n:translate="label_shipping_taxes">Shipping taxes</strong></td><td></td><td></td><td></td><td tal:content="cview/cart/get_shipping_taxes"></td>
           </tr>
           </tal:shippingcosts>
+                            <tr tal:condition="cview/show_prices">
+                      <td><strong i18n:translate="">Total</strong></td><td></td><td></td><td></td><td><b>CHF <span tal:content="cview/cart_total">US$ 100.00</span></b></td>
+                  </tr>
+
         </tfoot>
                 </tbody>
               </table>
-              <div>
-                  <p tal:condition="cview/show_prices">
-                      Total: <b>CHF <span tal:content="cview/cart_total">US$ 100.00</span></b>
-                  </p>
-              </div>
+
               <div>
                 <input class="context"
                        type="submit"
