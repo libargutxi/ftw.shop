@@ -44,4 +44,24 @@
         profile="ftw.shop:default"
         />
 
+    <!-- 2000 -> 2001 -->
+    <gs:registerProfile
+        name="2001"
+        title="Upgrade profile for ftw.shop 2000 to 2001"
+        description=""
+        directory="profiles/2001"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <gs:upgradeStep
+        title="Add shipping rate field to the configuration registry"
+        description=""
+        source="2000"
+        destination="2001"
+        handler="ftw.shop.upgrades.to2001.to_2001"
+        profile="ftw.shop:default"
+        />
+
+
 </configure>
