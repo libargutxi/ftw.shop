@@ -122,6 +122,14 @@
     <td style="border-top: 2px solid black;"></td>
     <td style="border-top: 2px solid black;"><span tal:content="order/vat_amount"/></td>
    </tr>
+    <tal:shippingcosts condition="python:order.shipping_costs or order.shipping_taxes">
+    <tr>
+      <td><strong i18n:translate="label_shipping_rate">Shipping rate</strong></td><td></td><td></td><td></td><td tal:content="order/shipping_costs"></td>
+    </tr>
+    <tr>
+      <td><strong i18n:translate="label_shipping_taxes">Shipping taxes</strong></td><td></td><td></td><td></td><td tal:content="order/shipping_costs"></td>
+    </tr>
+    </tal:shippingcosts>
 
    <tr>
     <td style="border-top: 3px solid black;"><span i18n:translate="txt_total">Total (incl.VAT)</span></td>
