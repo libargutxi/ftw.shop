@@ -80,10 +80,10 @@
 
           <tal:shippingcosts condition="python:context.REQUEST['cart_view'].cart.get_shipping_costs()">
           <tr>
-            <td><strong i18n:translate="label_shipping_rate">Shipping rate</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart/get_shipping_rate"></td>
+            <td><span i18n:translate="label_shipping_rate">Shipping rate</span></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart/get_shipping_rate"></td>
           </tr>
           <tr>
-            <td><strong i18n:translate="label_shipping_taxes">Shipping taxes</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart/get_shipping_taxes"></td>
+            <td><span i18n:translate="label_shipping_taxes">Shipping taxes</span></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart/get_shipping_taxes"></td>
           </tr>
 
           </tal:shippingcosts>
