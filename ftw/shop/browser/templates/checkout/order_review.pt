@@ -1,9 +1,9 @@
-<tal:block 
+<tal:block
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="ftw.shop">
 
       <h1 i18n:translate="label_summary">Summary</h1>
-      
+
       <h2 i18n:translate="label_personal_information">Personal Information</h2>
 
       <ul style="list-style:none" tal:define="customer python:view.wizard.session['contact_information'];"
@@ -22,7 +22,7 @@
           <li><span i18n:translate="label_phone">Phone</span>: <span tal:content="customer/phone"/></li>
 
 
-          <li tal:condition="customer/comments"> 
+          <li tal:condition="customer/comments">
               <span i18n:translate="label_comments">Comments</span>: <span tal:content="customer/comments"/></li>
           <li><br/></li>
       </ul>
@@ -77,6 +77,16 @@
           <tr tal:condition="python:context.REQUEST['cart_view'].shop_config().vat_enabled">
               <td><strong i18n:translate="label_vat">VAT</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart_vat"></td>
           </tr>
+
+          <tal:shippingcosts condition="python:context.REQUEST['cart_view'].cart.get_shipping_costs()">
+          <tr>
+            <td><strong i18n:translate="label_shipping_rate">Shipping rate</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart/get_shipping_rate"></td>
+          </tr>
+          <tr>
+            <td><strong i18n:translate="label_shipping_taxes">Shipping taxes</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart/get_shipping_taxes"></td>
+          </tr>
+
+          </tal:shippingcosts>
 
           <tr>
               <td><strong>Total</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart_total"></td>
