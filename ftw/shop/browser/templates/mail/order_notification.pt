@@ -144,8 +144,9 @@
 
 <br/>
 
+<tal:shippingcosts condition="python:not order.shipping_costs and not order.shipping_taxes">
 <span  i18n:translate="txt_shipping">Shipping and packaging costs are not included and will be charged individually.</span>
-
+</tal:shippingcosts>
 <hr/>
 
 </body>
