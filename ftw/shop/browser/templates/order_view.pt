@@ -12,7 +12,7 @@
                 tal:define="order view/getOrder">
 
     <div tal:replace="structure provider:plone.abovecontenttitle" />
-    
+
     <h1 class="documentFirstHeading" tal:content="string:Order ${order/title}">Title</h1>
 
     <div tal:replace="structure provider:plone.belowcontenttitle" />
@@ -27,7 +27,7 @@
                          name="form.widgets.status"
                          id="form-widgets-status">
 
-            <option tal:repeat="term statusSet" 
+            <option tal:repeat="term statusSet"
                     tal:attributes="value term/value; selected python:order.status == term.value and 'selected' or ''"
                     tal:content="term/title">Status Title</option>
         </select>
@@ -113,13 +113,33 @@
               <td tal:content="item/getTotal"></td>
             </tr>
           </metal:block>
+         <tr tal:condition="python:view.shop_config.vat_enabled">
+          <td><span i18n:translate="label_included_vat">VAT</span></td>
+          <td></td>
+          <td></td>
+          <td><span tal:content="order/vat_amount"/></td>
+         </tr>
+
+          <tal:shippingcosts condition="python:order.shipping_costs or order.shipping_taxes">
+          <tr>
+            <td><span i18n:translate="label_shipping_rate">Shipping rate</span></td><td></td><td></td><td tal:content="order/shipping_costs"></td>
+          </tr>
+          <tr>
+            <td><span i18n:translate="label_shipping_taxes">Shipping taxes</span></td><td></td><td></td><td tal:content="order/shipping_costs"></td>
+          </tr>
+          </tal:shippingcosts>
+
+          <tr>
+            <td><strong i18n:translate="">Total</strong></td><td></td><td></td><td><b tal:content="order/getTotal">US$ 100.00</b> <span i18n:translate="txt_vat">(incl. VAT)</span></td>
+          </tr>
+
+
         </tbody>
+
+
+
       </table>
 
-      <p>
-          Total: <b tal:content="order/getTotal">US$ 100.00</b>
-          <span i18n:translate="txt_vat">(incl. VAT)</span>
-      </p>
 
 
 </tal:main-macro>
@@ -127,4 +147,3 @@
 </body>
 </html>
 
-        
