@@ -353,6 +353,10 @@ class OrderManagerView(BrowserView):
                                         (self.context, self.request, self),
                                         IPaymentProcessorStepGroup)
 
+        # check shipping costs
+        shipping_costs = cart_view.cart.get_shipping_rate()
+        shipping_taxes = cart_view.cart.get_shipping_taxes()
+
         selected_pp_step_group = self.shop_config.payment_processor_step_group
         for name, step_group_adapter in payment_processor_step_groups:
             if name == selected_pp_step_group:
@@ -371,6 +375,8 @@ class OrderManagerView(BrowserView):
                                              date=datetime.now(),
                                              customer_data=customer_data,
                                              shipping_data=shipping_data,
+                                             shipping_costs=shipping_costs,
+                                             shipping_taxes=shipping_taxes,
                                              total=cart_view.cart_total(),
                                              cart_data=cart_data)
         order_storage.flush()

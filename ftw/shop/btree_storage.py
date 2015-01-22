@@ -66,6 +66,8 @@ class Order(Persistent):
         self.shipping_city = None
 
         self.cartitems = None
+        self.shipping_costs = None
+        self.shipping_taxes = None
 
     def getTotal(self):
         """Since SQLite doesn't support Decimal fields, trim the float it
@@ -144,6 +146,7 @@ class BTreeOrderStorage(Persistent):
     security.declareProtected(ModifyPortalContent, 'createOrder')
 
     def createOrder(self, status=None, date=None, customer_data=None,
+                    shipping_costs=None, shipping_taxes=None,
                     shipping_data=None, cart_data=None, total=None):
         """ a wrapper for the _addDataRow method """
 
@@ -190,6 +193,8 @@ class BTreeOrderStorage(Persistent):
 
         new_order.cartitems = all_cart_items
         new_order.vat_amount = vat_amount_total
+        new_order.shipping_costs = shipping_costs
+        new_order.shipping_taxes = shipping_taxes
         return order_id
 
     def cancelOrder(self, order_id):
