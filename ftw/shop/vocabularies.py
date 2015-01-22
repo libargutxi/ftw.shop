@@ -7,11 +7,13 @@ from ftw.shop.interfaces import IPaymentProcessorStepGroup
 from ftw.shop.interfaces import IShippingAddressStepGroup
 from ftw.shop.interfaces import IShopConfiguration
 from ftw.shop.interfaces import IStatusSet
+from ftw.shop.interfaces import IShippingRate
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
 from zope.component import getAdapters, getUtility, getUtilitiesFor
 from zope.component.hooks import getSite
 from zope.interface import directlyProvides
+from zope.interface import Interface
 from zope.schema import vocabulary
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
@@ -126,6 +128,17 @@ def EnabledPaymentProcessors(context):
             terms.remove(term)
 
     directlyProvides(EnabledPaymentProcessors, IVocabularyFactory)
+    return vocabulary.SimpleVocabulary(terms)
+
+
+def ShippingRates(context):
+    """Returns a vocabulary of the registered ShippingRates
+    """
+    # context is the portal config options, whose context is the portal
+    shipping_rates = getAdapters((context,), provided=IShippingRate)
+    terms = create_terms_from_adapters(shipping_rates)
+    directlyProvides(ShippingRates, IVocabularyFactory)
+
     return vocabulary.SimpleVocabulary(terms)
 
 
