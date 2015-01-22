@@ -102,13 +102,11 @@ class ShoppingCartAdapter(object):
         return shipping_rate.taxes() or Decimal(0.0)
 
     def get_selected_shipping_rate(self):
-        import pdb; pdb.set_trace()
         registry = getUtility(IRegistry)
         shop_config = registry.forInterface(IShopConfiguration)
         adapter_name = shop_config.shipping_rate
         shipping_rate = queryAdapter((self,), name=adapter_name)
         return shipping_rate
-
 
     def _get_supplier_info(self, context):
         supplier = self._get_supplier(context)
