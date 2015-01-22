@@ -95,11 +95,11 @@ class ShoppingCartAdapter(object):
 
     def get_shipping_rate(self):
         shipping_rate = self.get_selected_shipping_rate()
-        return shipping_rate.calculate() or Decimal(0.0)
+        return shipping_rate.calculate() or Decimal('0.0')
 
     def get_shipping_taxes(self):
         shipping_rate = self.get_selected_shipping_rate()
-        return shipping_rate.taxes() or Decimal(0.0)
+        return shipping_rate.taxes() or Decimal('0.0')
 
     def get_selected_shipping_rate(self):
         registry = getUtility(IRegistry)
