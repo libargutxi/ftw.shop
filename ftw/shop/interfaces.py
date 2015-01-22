@@ -103,6 +103,11 @@ class IShippingRate(Interface):
             returns the price of the shipping
         """
 
+    def taxes():
+        """
+            return the taxes of the shipping rate
+        """
+
 
 class IContactInformationStepGroup(IWizardStepGroup):
     """A wizard step group gathering contact information about the customer
