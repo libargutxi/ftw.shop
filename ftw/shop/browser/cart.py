@@ -21,6 +21,7 @@ from zope.component import adapts
 from zope.component import getAdapters
 from zope.component import getMultiAdapter
 from zope.component import getUtility
+from zope.component import queryAdapter
 from zope.interface import implements
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IBrowserRequest
@@ -84,7 +85,30 @@ class ShoppingCartAdapter(object):
         total = Decimal('0.00')
         for item in items.values():
             total += Decimal(item['total'])
+
+        total += self.get_shipping_costs()
+
         return str(total)
+
+    def get_shipping_costs(self):
+        return self.get_shipping_rate() + self.get_shipping_taxes()
+
+    def get_shipping_rate(self):
+        shipping_rate = self.get_selected_shipping_rate()
+        return shipping_rate.calculate() or Decimal(0.0)
+
+    def get_shipping_taxes(self):
+        shipping_rate = self.get_selected_shipping_rate()
+        return shipping_rate.taxes() or Decimal(0.0)
+
+    def get_selected_shipping_rate(self):
+        import pdb; pdb.set_trace()
+        registry = getUtility(IRegistry)
+        shop_config = registry.forInterface(IShopConfiguration)
+        adapter_name = shop_config.shipping_rate
+        shipping_rate = queryAdapter((self,), name=adapter_name)
+        return shipping_rate
+
 
     def _get_supplier_info(self, context):
         supplier = self._get_supplier(context)
