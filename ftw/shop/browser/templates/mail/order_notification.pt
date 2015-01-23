@@ -127,7 +127,7 @@
       <td><span i18n:translate="label_shipping_rate">Shipping rate</span></td><td></td><td></td><td></td><td tal:content="order/shipping_costs"></td>
     </tr>
     <tr>
-      <td><span i18n:translate="label_shipping_taxes">Shipping taxes</span></td><td></td><td></td><td></td><td tal:content="order/shipping_costs"></td>
+      <td><span i18n:translate="label_shipping_taxes">Shipping taxes</span></td><td></td><td></td><td></td><td tal:content="order/shipping_taxes"></td>
     </tr>
     </tal:shippingcosts>
 
