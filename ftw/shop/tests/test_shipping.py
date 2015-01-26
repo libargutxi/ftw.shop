@@ -1,12 +1,10 @@
 from decimal import Decimal
 from ftw.shop.interfaces import IShopConfiguration
-from ftw.shop.testing import FTW_SHOP_FUNCTIONAL_TESTING
 from ftw.shop.testing import FTW_SHOP_INTEGRATION_TESTING
 from ftw.shop.tests.base import FtwShopTestCase
 from plone.registry.interfaces import IRegistry
 from zope.component import getMultiAdapter
 from zope.component import getUtility
-from unittest2 import TestCase
 from plone.app.testing import pushGlobalRegistry
 from plone.app.testing import popGlobalRegistry
 import unittest

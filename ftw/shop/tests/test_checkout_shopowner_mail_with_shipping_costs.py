@@ -4,7 +4,6 @@ from ftw.builder import create
 from ftw.shop.interfaces import IShippingRate
 from ftw.shop.interfaces import IShopConfiguration
 from ftw.shop.interfaces import IShopRoot
-from ftw.shop.testing import FTW_SHOP_INTEGRATION_TESTING
 from ftw.shop.testing import FTW_SHOP_WITH_SHIPPING_FUNCTIONAL_TESTING
 from ftw.shop.tests.pages import checkout
 from ftw.testbrowser import browsing
@@ -15,19 +14,12 @@ from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.registry.interfaces import IRegistry
 from unittest2 import TestCase
-from zope.component import getGlobalSiteManager
 from zope.component import getUtility
-from zope.component import provideAdapter
 from zope.interface import alsoProvides
 from zope.interface import implements
-from zope.interface import Interface
 from zope.schema.interfaces import IVocabularyFactory
-from ftw.shop.tests.base import FtwShopTestCase
-from plone.app.testing import popGlobalRegistry
-from plone.app.testing import pushGlobalRegistry
 import email
 import email.header
-import unittest
 
 
 class ShippingRateTest(object):

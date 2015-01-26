@@ -1,10 +1,8 @@
 from decimal import Decimal
 from ftw.shop.interfaces import IShippingRate
 from ftw.shop.interfaces import IShopConfiguration
-from ftw.shop.testing import FTW_SHOP_FUNCTIONAL_TESTING
 from ftw.shop.testing import FTW_SHOP_INTEGRATION_TESTING
 from ftw.shop.tests.base import FtwShopTestCase
-from plone.app.testing import ploneSite
 from plone.app.testing import popGlobalRegistry
 from plone.app.testing import pushGlobalRegistry
 from plone.registry.interfaces import IRegistry
@@ -15,7 +13,6 @@ from zope.component import provideAdapter
 from zope.interface import implements
 from zope.interface import Interface
 from zope.schema.interfaces import IVocabularyFactory
-from unittest2 import TestCase
 import unittest
 
 
