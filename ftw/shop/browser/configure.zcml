@@ -182,6 +182,13 @@
       class=".shopitem.MigrateVariationsView"
       />
 
+    <browser:page
+      for="*"
+      name="selected_currency_name"
+      permission="zope2.View"
+      class=".currency.CurrencyView"
+      />
+
 
   <browser:resourceDirectory
     name='ftw-shop-resources'
