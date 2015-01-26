@@ -44,4 +44,15 @@
         profile="ftw.shop:default"
         />
 
+    <!-- 2000 -> 2001 -->
+    <gs:upgradeStep
+        title="Add currency configuration option"
+        description=""
+        source="2000"
+        destination="2001"
+        handler="ftw.shop.upgrades.to2001.to_2001"
+        profile="ftw.shop:default"
+        />
+
+
 </configure>
