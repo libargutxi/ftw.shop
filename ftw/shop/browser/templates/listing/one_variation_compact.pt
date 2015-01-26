@@ -5,7 +5,7 @@
                         i18n:domain="ftw.shop">
 
                     <div class="variation-toplevel-group"
-                         tal:condition="python:item['hasVariations'] and len(varConf.getVariationAttributes()) == 1" 
+                         tal:condition="python:item['hasVariations'] and len(varConf.getVariationAttributes()) == 1"
                          tal:define="varConf item/varConf">
 
                     <form tal:attributes="action string:${item/url}/addtocart">
@@ -31,7 +31,7 @@
                                 <td>
                                     <select name="var1choice">
                                         <option tal:repeat="varValue1 varConf/getVariation1Values"
-                                        tal:content="varValue1" 
+                                        tal:content="varValue1"
                                         tal:attributes="value repeat/varValue1/index">
                                         Blau
                                         </option>
@@ -48,7 +48,7 @@
                             <label>Menge</label>
                             <input name="quantity:int" type="text" value="1" size="2" />
 
-                            <input name="addtocart" class="compact allowMultiSubmit" 
+                            <input name="addtocart" class="compact allowMultiSubmit"
                                    type="submit" value="Add to cart" i18n:attributes="value"/>
                         </span>
 
@@ -81,7 +81,7 @@
                          <tal:variations tal:repeat="vcode varDict">
                              <tr tal:attributes="id vcode" tal:condition="python: varDict[vcode]['active']">
                                  <td tal:content="python:varConf.getPrettyName(vcode)"></td>
-                                 <td>CHF <span tal:content="python: varDict[vcode]['price']"></span></td>
+                                 <td><span tal:replace="here/@@selected_currency_name" /> <span tal:content="python: varDict[vcode]['price']"></span></td>
                                  <td tal:content="python: varDict[vcode]['skuCode']"></td>
                                  <td><span tal:condition="python: 'description' in varDict[vcode].keys()"
                                            tal:content="python: varDict[vcode]['description']"/></td>

@@ -12,15 +12,15 @@
                             cart cview/cart_items">
 
     <h1 i18n:translate="cart_title">Shopping Cart</h1>
-    
+
     <tal:block tal:define="cart_items python:cart.values()">
-                           
+
         <p tal:condition="not:cart_items"
            i18n:translate="cart_is_empty">Your cart is empty</p>
-           
+
         <form method="post" action="./"
               tal:condition="cart_items">
-              
+
             <table class="cartListing listing" cellpadding="0" cellspacing="0">
                 <thead>
                   <tr>
@@ -51,12 +51,12 @@
 
                       <!-- TODO: hackish - better make sure prices are stored normalized in varConf -->
                       <td tal:condition="cview/show_prices">
-                          CHF <span tal:condition="python:item['show_price']"
+                          <span tal:replace="here/@@selected_currency_name" /> <span tal:condition="python:item['show_price']"
                                 tal:content="python:item['price'] in ('0.00', '0.0') and ' ' or item['price']"
                                 />
                       </td>
                       <td tal:condition="cview/show_prices">
-                          CHF <span tal:condition="python:item['show_price']"
+                          <span tal:replace="here/@@selected_currency_name" /> <span tal:condition="python:item['show_price']"
                                 tal:content="python:item['total'] in ('0.00', '0.0') and ' ' or item['total']"
                                 />
                       </td>
@@ -66,13 +66,13 @@
                               <img src="++resource++ftw-shop-resources/delete_p.gif" />
                           </a>
                       </td>
-                    </tr> 
+                    </tr>
                   </metal:block>
                 </tbody>
               </table>
               <div>
                   <p tal:condition="cview/show_prices">
-                      Total: <b>CHF <span tal:content="cview/cart_total">US$ 100.00</span></b>
+                      Total: <b><span tal:replace="here/@@selected_currency_name" /> <span tal:content="cview/cart_total">US$ 100.00</span></b>
                   </p>
               </div>
               <div>

@@ -22,7 +22,7 @@
                                               hasUniqueSKU python:varConf.getVariationData(varValue1, None, 'hasUniqueSKU')"
                                      tal:condition="active">
                                      <td tal:content="varValue1">S</td>
-                                     <td tal:condition="python: not varConf.allPricesZero() and item['showPrice']">CHF <span tal:content="price"/></td>
+                                     <td tal:condition="python: not varConf.allPricesZero() and item['showPrice']"><span tal:replace="here/@@selected_currency_name" /> <span tal:content="price"/></td>
                                      <td><span tal:content="skuCode"/></td>
                                      <td><span tal:content="description"/></td>
                                      <td style="white-space: nowrap;">
@@ -39,7 +39,7 @@
                                          <form tal:condition="varConf/isValid" tal:attributes="action string:${item/url}/addtocart">
                                              <input type="hidden" name="skuCode" tal:attributes="value skuCode"/>
                                              <input type="text" size="2" name="quantity:int" value="1"/>
-                                             <input class="allowMultiSubmit" name="addtocart" type="submit" 
+                                             <input class="allowMultiSubmit" name="addtocart" type="submit"
                                                     value="Add to cart" i18n:attributes="value" />
                                          </form>
                                      </td>
