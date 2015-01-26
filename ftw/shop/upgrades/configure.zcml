@@ -45,7 +45,6 @@
         />
 
     <!-- 2000 -> 2001 -->
-<<<<<<< HEAD
     <upgrade-step:importProfile
         title="Register CSS and JS from the resourceDirectory"
         description=""
