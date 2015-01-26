@@ -1,7 +1,5 @@
-from decimal import Decimal
 from ftw.builder import Builder
 from ftw.builder import create
-from ftw.shop.interfaces import IShippingRate
 from ftw.shop.interfaces import IShopConfiguration
 from ftw.shop.interfaces import IShopRoot
 from ftw.shop.testing import FTW_SHOP_FUNCTIONAL_TESTING
@@ -15,28 +13,11 @@ from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.registry.interfaces import IRegistry
 from unittest2 import TestCase
-from zope.component import getGlobalSiteManager
 from zope.component import getUtility
 from zope.interface import alsoProvides
-from zope.interface import Interface
-from zope.interface import implements
-from zope.schema.interfaces import IVocabularyFactory
 import email
 import email.header
 import transaction
-
-
-class ShippingRateTest(object):
-    implements(IShippingRate)
-
-    def __init__(self, context):
-        self.context = context
-
-    def calculate(self):
-        return Decimal('3.3')
-
-    def taxes(self):
-        return Decimal('1.1')
 
 
 class TestCheckoutMailToCustomer(TestCase):
@@ -127,7 +108,6 @@ class TestCheckoutMailToCustomer(TestCase):
                  create(Builder('shop item').having(price='5.00'))]
 
         self.open_mail_in_browser(self.checkout_and_get_mail(*items), browser)
-
         self.assertEquals([['VAT', '', '', '', '0.00'],
                            ['Total (incl.VAT)', '', '', '', '15.00']],
                           browser.css('table').first.lists(head=False, body=False))
@@ -156,27 +136,4 @@ class TestCheckoutMailToCustomer(TestCase):
 
             browser.css('#contact-information').first.text)
 
-    @browsing
-    def test_shipping_costs_in_customer_mail(self, browser):
-        gsm = getGlobalSiteManager()
-        gsm.registerAdapter(factory=ShippingRateTest,
-            required=(Interface,),
-            name=u'ftw.shop.TestShippingRate33', provided=IShippingRate)
 
-        vocabulary_factory = getUtility(IVocabularyFactory,
-            name=u'ftw.shop.shipping_rates')
-        vocabulary = vocabulary_factory(self)
-        self.assertTrue(
-            vocabulary.getTerm(u'ftw.shop.TestShippingRate33') is not None)
-
-        registry = getUtility(IRegistry)
-        shop_config = registry.forInterface(IShopConfiguration)
-        shop_config.shipping_rate = u'ftw.shop.TestShippingRate33'
-        self.open_mail_in_browser(self.checkout_and_get_mail(), browser)
-        footer_rows = browser.css('table tfoot tr')
-        shipping_rate_row = footer_rows[1]
-        shipping_taxes_row = footer_rows[2]
-        self.assertTrue(u'Shipping rate' in shipping_rate_row.css('td')[0].text)
-        self.assertTrue(u'3.3' in shipping_rate_row.css('td')[4].text)
-        self.assertTrue(u'Shipping taxes' in shipping_taxes_row.css('td')[0].text)
-        self.assertTrue(u'1.1' in shipping_taxes_row.css('td')[4].text)
