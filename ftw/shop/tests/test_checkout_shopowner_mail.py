@@ -1,7 +1,5 @@
-from decimal import Decimal
 from ftw.builder import Builder
 from ftw.builder import create
-from ftw.shop.interfaces import IShippingRate
 from ftw.shop.interfaces import IShopConfiguration
 from ftw.shop.interfaces import IShopRoot
 from ftw.shop.testing import FTW_SHOP_FUNCTIONAL_TESTING
@@ -13,22 +11,12 @@ from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
-from plone.app.testing import pushGlobalRegistry
-from plone.app.testing import popGlobalRegistry
-from plone.app.testing import ploneSite
 from plone.registry.interfaces import IRegistry
 from unittest2 import TestCase
-from zope.component import getGlobalSiteManager
-from zope.component import provideAdapter
 from zope.component import getUtility
 from zope.interface import alsoProvides
-from zope.interface import implements
-from zope.interface import Interface
-from zope.schema.interfaces import IVocabularyFactory
-from zope.testing.cleanup import CleanUp
 import email
 import email.header
-import transaction
 
 
 class TestCheckoutMailToShopOwner(TestCase):
