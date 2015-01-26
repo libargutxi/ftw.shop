@@ -31,11 +31,40 @@ class FtwShopLayer(PloneSandboxLayer):
         applyProfile(portal, 'ftw.shop:default')
 
 
+class ShippingLayer(PloneSandboxLayer):
+
+    defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
+
+    def setUpZope(self, app, configurationContext):
+        xmlconfig.string(
+            '<configure xmlns="http://namespaces.zope.org/zope">'
+            '  <include package="z3c.autoinclude" file="meta.zcml" />'
+            '  <includePlugins package="plone" />'
+            '  <includePluginsOverrides package="plone" />'
+            '  <adapter'
+            '    name="ftw.shop.TestShippingRate33"'
+            '    factory="ftw.shop.tests.helpers.ShippingRateTest"'
+            '  />'
+            '</configure>',
+            context=configurationContext)
+        setupCoreSessions(app)
+        z2.installProduct(app, 'ftw.shop')
+
+    def setUpPloneSite(self, portal):
+        applyProfile(portal, 'ftw.shop:default')
+
+
 FTW_SHOP_FIXTURE = FtwShopLayer()
 FTW_SHOP_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(FTW_SHOP_FIXTURE,
            set_builder_session_factory(functional_session_factory)),
     name="ftw.shop:functional")
+
+FTW_SHOP_WITH_SHIPPING_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(ShippingLayer(),
+           set_builder_session_factory(functional_session_factory)
+           ),
+    name="ftw.shop.shipping:functional")
 
 FTW_SHOP_INTEGRATION_TESTING = IntegrationTesting(
     bases=(FTW_SHOP_FIXTURE, ), name="ftw.shop:integration")
