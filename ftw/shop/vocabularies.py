@@ -194,7 +194,7 @@ def CurrenciesVocabulary(context):
     """
     terms = [SimpleTerm(value=pair[0],
                         token=pair[0],
-                        title=pair[1]) for pair in CURRENCIES]
+                        title=pair[1]) for pair in CURRENCIES.items()]
 
     directlyProvides(CurrenciesVocabulary, IVocabularyFactory)
     return vocabulary.SimpleVocabulary(terms)
