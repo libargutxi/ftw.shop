@@ -146,7 +146,8 @@ class BTreeOrderStorage(Persistent):
     security.declareProtected(ModifyPortalContent, 'createOrder')
 
     def createOrder(self, status=None, date=None, customer_data=None,
-                    shipping_costs=None, shipping_taxes=None,
+                    shipping_costs=Decimal('0.00'),
+                    shipping_taxes=Decimal('0.00'),
                     shipping_data=None, cart_data=None, total=None):
         """ a wrapper for the _addDataRow method """
 

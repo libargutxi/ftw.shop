@@ -15,22 +15,22 @@ from ftw.shop.tests.base import MOCK_SHIPPING
 from ftw.shop.tests.base import MOCK_CART
 
 class TestBTreeStorage(FtwShopTestCase):
-    
+
     def afterSetUp(self):
         super(TestBTreeStorage, self).afterSetUp()
 
-                                 
+
     def test_btree_order_storage(self):
         btree_order_storage = getUtility(IOrderStorage, 'ftw.shop.BTreeOrderStorage')
         now = datetime.now()
-        order_id = btree_order_storage.createOrder(status=ONLINE_PENDING_KEY, 
+        order_id = btree_order_storage.createOrder(status=ONLINE_PENDING_KEY,
                                                  date=now,
                                                  customer_data=MOCK_CUSTOMER,
                                                  shipping_data=MOCK_SHIPPING,
                                                  cart_data=MOCK_CART,
                                                  total='8.30')
         self.assertEquals(order_id, 1)
-        
+
         order = btree_order_storage.getOrder(order_id)
         self.assertEquals(order.order_id, order_id)
         self.assertEquals(order.status, ONLINE_PENDING_KEY)
@@ -40,7 +40,7 @@ class TestBTreeStorage(FtwShopTestCase):
         order_prefix = '%03d%s' % (now.timetuple().tm_yday + 500, now.strftime("%y"))
         order_number = '%s%04d' % (order_prefix, order_id)
         self.assertEquals(order.title, order_number)
-        
+
         self.assertEquals(order.customer_title, MOCK_CUSTOMER['title'])
         self.assertEquals(order.customer_firstname, MOCK_CUSTOMER['firstname'])
         self.assertEquals(order.customer_lastname, MOCK_CUSTOMER['lastname'])
@@ -49,7 +49,7 @@ class TestBTreeStorage(FtwShopTestCase):
         self.assertEquals(order.customer_zipcode, MOCK_CUSTOMER['zipcode'])
         self.assertEquals(order.customer_city, MOCK_CUSTOMER['city'])
         self.assertEquals(order.customer_email, MOCK_CUSTOMER['email'])
-        
+
         cart_items = order.cartitems
         self.assertEquals(cart_items[0].sku_code, MOCK_CART['some-uid']['skucode'])
         self.assertEquals(cart_items[0].quantity, MOCK_CART['some-uid']['quantity'])
@@ -61,7 +61,7 @@ class TestBTreeStorage(FtwShopTestCase):
 
         self.assertEquals(cart_items[0].order_id, order_id)
         self.assertEquals(cart_items[0].order, order)
-        
+
     def test_get_field_names(self):
         btree_order_storage = getUtility(IOrderStorage, 'ftw.shop.BTreeOrderStorage')
         expected_field_names = ['customer_city',
@@ -80,11 +80,13 @@ class TestBTreeStorage(FtwShopTestCase):
                                  'date',
                                  'order_id',
                                  'shipping_city',
+                                 'shipping_costs',
                                  'shipping_firstname',
                                  'shipping_lastname',
                                  'shipping_company',
                                  'shipping_street1',
                                  'shipping_street2',
+                                 'shipping_taxes',
                                  'shipping_title',
                                  'shipping_zipcode',
                                  'status',
