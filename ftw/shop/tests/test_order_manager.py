@@ -8,7 +8,7 @@ from ftw.shop.tests.base import MOCK_CART
 from ftw.shop.tests.base import MOCK_CUSTOMER
 from ftw.shop.tests.base import MOCK_SHIPPING
 from plone import api
-from zope.component import  getMultiAdapter
+from zope.component import getMultiAdapter
 import unittest
 
 
@@ -45,6 +45,8 @@ class TestOrderManager(FtwShopTestCase):
             'order_id',
             'title',
             'status',
+            'shipping_costs',
+            'shipping_taxes',
             'total',
             'date',
             'customer_title',
@@ -82,6 +84,8 @@ class TestOrderManager(FtwShopTestCase):
             '1',
             order_number,
             '1',
+            str(order.shipping_costs),
+            str(order.shipping_taxes),
             str(order.getTotal()),
             str(order_date),
             MOCK_CUSTOMER['title'],

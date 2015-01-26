@@ -62,6 +62,8 @@ COLUMN_TITLES = {
     'order_id': 'Bestellungs-ID',
     'title': 'Bestellnummer',
     'status': 'Status',
+    'shipping_costs': 'Shipping costs',
+    'shipping_taxes': 'Shipping taxes',
     'total': 'Total',
     'date': 'Datum',
     'customer_attn': 'Zu Handen von',
@@ -173,7 +175,6 @@ class OrderManagerView(BrowserView):
     def download_csv(self):
         """Returns a CSV file containing the shop orders
         """
-
         filename = "orders.csv"
         stream = cStringIO.StringIO()
         csv_writer = csv.writer(stream, dialect='excel', delimiter=';',
@@ -181,6 +182,8 @@ class OrderManagerView(BrowserView):
         core_cols = ['order_id',
                       'title',
                       'status',
+                      'shipping_costs',
+                      'shipping_taxes',
                       'total',
                       'date',
                       'customer_title',
