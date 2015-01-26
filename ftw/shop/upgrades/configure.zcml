@@ -45,6 +45,16 @@
         />
 
     <!-- 2000 -> 2001 -->
+    <gs:registerProfile
+        name="2001"
+        title="Upgrade profile for ftw.shop 2000 to 2001"
+        description=""
+        directory="profiles/2001"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <!-- 2000 -> 2001 -->
     <gs:upgradeStep
         title="Add currency configuration option"
         description=""
