@@ -65,7 +65,6 @@ class TestCheckoutMailToShopOwnerWithShipping(TestCase):
     @browsing
     def test_shipping_costs_in_customer_mail(self, browser):
 
-
         vocabulary_factory = getUtility(IVocabularyFactory,
             name=u'ftw.shop.shipping_rates')
         vocabulary = vocabulary_factory(self)
