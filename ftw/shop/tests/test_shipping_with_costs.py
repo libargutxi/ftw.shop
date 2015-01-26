@@ -55,7 +55,6 @@ class TestShippingRateWithShippingCosts(FtwShopTestCase):
         registry = getUtility(IRegistry)
         shop_config = registry.forInterface(IShopConfiguration)
         shop_config.shipping_rate = u'ftw.shop.TestShippingRate33'
-        # transaction.savepoint(optimistic=True)
 
         self.cart = getMultiAdapter((self.movie, self.portal.REQUEST),
             name='cart_view')
@@ -74,18 +73,6 @@ class TestShippingRateWithShippingCosts(FtwShopTestCase):
             (Interface,),
             IShippingRate,
             name=u'ftw.shop.TestShippingRate33')
-        # transaction.abort()
-
-    # def setUp(self):
-    #     super(TestShippingRateWithShippingCosts, self).setUp()
-    #     # with ploneSite() as portal:
-    #     #     pushGlobalRegistry(portal, new=None)
-
-    # def tearDown(self):
-    #     super(TestShippingRateWithShippingCosts, self).tearDown()
-    #     # with ploneSite() as portal:
-    #     #     popGlobalRegistry(portal)
-
 
 def test_suite():
     suite = unittest.TestSuite()
