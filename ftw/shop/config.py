@@ -12,9 +12,9 @@ ADD_PERMISSIONS = {
 }
 
 CURRENCIES = DisplayList((
-    ('CHF', 'CHF'), # CHF
-#      ('USD', 'US$'), # U.S. Dollars
-#      ('EUR', 'Eur'), # Euros
+    ('CHF', 'CHF'),  # CHF
+    ('USD', 'US$'),  # U.S. Dollars
+    ('EUR', 'Eur'),  # Euros
 ))
 
 SESSION_ORDERS_KEY = 'ftw.shop.orders'
