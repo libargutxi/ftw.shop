@@ -229,7 +229,7 @@ class IShopConfiguration(Interface):
                             )
 
     shipping_rate = schema.Choice(
-            title=_(u"label_shipping_rate",
+            title=_(u"label_shipping_rate_calculator",
                     default="Shipping rate calculator"),
             required=False,
             default=u'ftw.shop.NullShippingRate',
