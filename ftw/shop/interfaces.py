@@ -94,6 +94,21 @@ class IPaymentProcessor(Interface):
     """
 
 
+class IShippingRate(Interface):
+    """A shipping rate calculator.
+    """
+
+    def calculate():
+        """ calculates the shipping rate and
+            returns the price of the shipping
+        """
+
+    def taxes():
+        """
+            return the taxes of the shipping rate
+        """
+
+
 class IContactInformationStepGroup(IWizardStepGroup):
     """A wizard step group gathering contact information about the customer
     """
@@ -212,6 +227,14 @@ class IShopConfiguration(Interface):
             value_type=schema.Choice(
                             vocabulary="ftw.shop.payment_processors"),
                             )
+
+    shipping_rate = schema.Choice(
+            title=_(u"label_shipping_rate",
+                    default="Shipping rate calculator"),
+            required=False,
+            default=u'ftw.shop.NullShippingRate',
+            vocabulary="ftw.shop.shipping_rates",
+            )
 
     order_storage = schema.Choice(
             title=_(u"label_order_storage",

@@ -7,10 +7,10 @@ from ftw.shop.tests.helpers import get_mail_header
 from ftw.shop.tests.pages import checkout
 from ftw.testbrowser import browsing
 from ftw.testing.mailing import Mailing
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login
 from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
 from plone.registry.interfaces import IRegistry
 from unittest2 import TestCase
 from zope.component import getUtility
@@ -128,3 +128,5 @@ class TestCheckoutMailToShopOwner(TestCase):
         self.assertEquals([['VAT', '', '', '', '0.00'],
                            ['Total (incl.VAT)', '', '', '', '15.00']],
                           browser.css('table').first.lists(head=False, body=False))
+
+

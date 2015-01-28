@@ -1,8 +1,9 @@
 from datetime import datetime
+from decimal import Decimal
 from ftw.shop.browser.cart import CartView
 from ftw.shop.browser.checkout import CheckoutView
 from ftw.shop.browser.checkout import CheckoutWizard
-from ftw.shop.config import  ONLINE_PENDING_KEY
+from ftw.shop.config import ONLINE_PENDING_KEY
 from ftw.shop.interfaces import IOrderStorage
 from ftw.shop.tests.base import FtwShopTestCase
 from ftw.shop.tests.base import MOCK_CART
@@ -49,6 +50,8 @@ class TestCheckout(FtwShopTestCase):
             status=ONLINE_PENDING_KEY,
             date=now,
             customer_data=MOCK_CUSTOMER,
+            shipping_costs=Decimal('0.0'),
+            shipping_taxes=Decimal('0.0'),
             shipping_data=MOCK_SHIPPING,
             cart_data=MOCK_CART,
             total='8.30')
@@ -70,6 +73,8 @@ class TestCheckout(FtwShopTestCase):
             status=ONLINE_PENDING_KEY,
             date=now,
             customer_data=MOCK_CUSTOMER,
+            shipping_costs=Decimal('0.0'),
+            shipping_taxes=Decimal('0.0'),
             shipping_data=MOCK_SHIPPING,
             cart_data=MOCK_CART_TWO_SUPPLIERS,
             total='8.30')

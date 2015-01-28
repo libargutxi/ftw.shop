@@ -124,6 +124,18 @@
       component=".vocabularies.EnabledPaymentProcessors"
       />
 
+    <!-- Installed Shipping rate calculators -->
+    <utility
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      name="ftw.shop.shipping_rates"
+      component=".vocabularies.ShippingRates"
+      />
+
+    <!-- Register basic null shipping rate adapter -->
+    <adapter
+      name="ftw.shop.NullShippingRate"
+      factory=".shipping.NullShippingRate" />
+
     <!-- Order Storages Vocabulary -->
     <utility
       provides="zope.schema.interfaces.IVocabularyFactory"

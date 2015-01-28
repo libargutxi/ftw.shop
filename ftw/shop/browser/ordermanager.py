@@ -62,6 +62,8 @@ COLUMN_TITLES = {
     'order_id': 'Bestellungs-ID',
     'title': 'Bestellnummer',
     'status': 'Status',
+    'shipping_costs': 'Shipping costs',
+    'shipping_taxes': 'Shipping taxes',
     'total': 'Total',
     'date': 'Datum',
     'customer_attn': 'Zu Handen von',
@@ -173,7 +175,6 @@ class OrderManagerView(BrowserView):
     def download_csv(self):
         """Returns a CSV file containing the shop orders
         """
-
         filename = "orders.csv"
         stream = cStringIO.StringIO()
         csv_writer = csv.writer(stream, dialect='excel', delimiter=';',
@@ -181,6 +182,8 @@ class OrderManagerView(BrowserView):
         core_cols = ['order_id',
                       'title',
                       'status',
+                      'shipping_costs',
+                      'shipping_taxes',
                       'total',
                       'date',
                       'customer_title',
@@ -353,6 +356,10 @@ class OrderManagerView(BrowserView):
                                         (self.context, self.request, self),
                                         IPaymentProcessorStepGroup)
 
+        # check shipping costs
+        shipping_costs = cart_view.cart.get_shipping_rate()
+        shipping_taxes = cart_view.cart.get_shipping_taxes()
+
         selected_pp_step_group = self.shop_config.payment_processor_step_group
         for name, step_group_adapter in payment_processor_step_groups:
             if name == selected_pp_step_group:
@@ -371,6 +378,8 @@ class OrderManagerView(BrowserView):
                                              date=datetime.now(),
                                              customer_data=customer_data,
                                              shipping_data=shipping_data,
+                                             shipping_costs=shipping_costs,
+                                             shipping_taxes=shipping_taxes,
                                              total=cart_view.cart_total(),
                                              cart_data=cart_data)
         order_storage.flush()

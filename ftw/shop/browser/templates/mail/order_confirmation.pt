@@ -121,8 +121,17 @@ Thank you for your order in our shop on the
     <td style="border-top: 2px solid black;"><span tal:content="order/vat_amount"/></td>
    </tr>
 
+    <tal:shippingcosts condition="python:order.shipping_costs or order.shipping_taxes">
+    <tr>
+      <td><span i18n:translate="label_shipping_rate">Shipping rate</span></td><td></td><td></td><td></td><td tal:content="order/shipping_costs"></td>
+    </tr>
+    <tr>
+      <td><span i18n:translate="label_shipping_taxes">Shipping taxes</span></td><td></td><td></td><td></td><td tal:content="order/shipping_taxes"></td>
+    </tr>
+    </tal:shippingcosts>
+
    <tr>
-    <td style="border-top: 3px solid black;"><span i18n:translate="txt_total">Total (incl.VAT)</span></td>
+    <td style="border-top: 3px solid black;"><strong i18n:translate="txt_total">Total (incl.VAT)</strong></td>
     <td style="border-top: 3px solid black;"></td>
     <td style="border-top: 3px solid black;"></td>
     <td style="border-top: 3px solid black;"></td>
@@ -134,8 +143,9 @@ Thank you for your order in our shop on the
 
 <br/>
 
-
+<tal:shippingcosts condition="python:not order.shipping_costs and not order.shipping_taxes">
 <span  i18n:translate="txt_shipping">Shipping and packaging costs are not included and will be charged individually.</span>
+</tal:shippingcosts>
 
 <p i18n:translate="txt_contact" id="contact-information">
 For inquiries please contact us:
