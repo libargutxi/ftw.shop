@@ -45,6 +45,7 @@ class ShopConfigurationForm(RegistryEditForm, group.GroupForm):
                                                    'mail_bcc',
                                                    'mail_subject',
                                                    'always_notify_shop_owner',
+                                                   'currency',
                                                    'payment_processor_step_group',
                                                    'enabled_payment_processors',
                                                    'contact_info_step_group',
