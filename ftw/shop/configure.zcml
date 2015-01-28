@@ -176,6 +176,13 @@
         component=".vocabularies.SuppliersVocabulary"
         />
 
+    <!-- Currencies vocabulary -->
+    <utility
+        provides="zope.schema.interfaces.IVocabularyFactory"
+        name="ftw.shop.currencies_vocabulary"
+        component=".vocabularies.CurrenciesVocabulary"
+        />
+
     <adapter
       factory="ftw.shop.mailer.MailHostAdapter"
     />

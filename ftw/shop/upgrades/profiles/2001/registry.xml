@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <registry>
-
     <record interface="ftw.shop.interfaces.IShopConfiguration" field="shipping_rate">
         <value></value>
     </record>
 
+    <record interface="ftw.shop.interfaces.IShopConfiguration" field="currency">
+        <value>CHF</value>
+    </record>
 </registry>
+

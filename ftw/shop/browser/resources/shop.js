@@ -1,5 +1,9 @@
 jQuery(function ($) {
     // Add item to cart through AJAX request
+    var currency = "";
+    $.get('selected_currency_name', function(data){
+        currency = data;
+    });
     $('input[name="addtocart"]').click(function (event) {
         event.preventDefault();
 
@@ -142,7 +146,7 @@ jQuery(function ($) {
         varSkuCode = varDicts[uid][varcode]['skuCode'];
         varDescription = varDicts[uid][varcode]['description'];
 
-        varSelectTable.find("td.variationPrice").text("CHF " + varPrice);
+        varSelectTable.find("td.variationPrice").text(currency + " " + varPrice);
         varSelectTable.find("td.variationSKUCode").text(varSkuCode);
         $(this).parents(".variation-toplevel-group").find("span.variationDescription").text(varDescription);
         $(this).parents(".variation-toplevel-group").find("span.variationDescription").show();

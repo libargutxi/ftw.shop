@@ -21,6 +21,7 @@ class CheckoutGroup(group.Group):
     label = _('label_checkout_group', default=u'Checkout')
     fields = field.Fields(IShopConfiguration).select(
         'payment_processor_step_group',
+        'currency',
         'enabled_payment_processors',
         'shipping_rate',
         'contact_info_step_group',

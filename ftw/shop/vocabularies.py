@@ -1,4 +1,5 @@
 from ftw.shop import shopMessageFactory as _
+from ftw.shop.config import CURRENCIES
 from ftw.shop.interfaces import IContactInformationStepGroup
 from ftw.shop.interfaces import IOrderReviewStepGroup
 from ftw.shop.interfaces import IOrderStorage
@@ -198,4 +199,15 @@ def SuppliersVocabulary(context):
                                        default="Supplier from parent category")))
 
     directlyProvides(SuppliersVocabulary, IVocabularyFactory)
+    return vocabulary.SimpleVocabulary(terms)
+
+
+def CurrenciesVocabulary(context):
+    """Returns a vocabulary of the available currencies
+    """
+    terms = [SimpleTerm(value=pair[0],
+                        token=pair[0],
+                        title=pair[1]) for pair in CURRENCIES.items()]
+
+    directlyProvides(CurrenciesVocabulary, IVocabularyFactory)
     return vocabulary.SimpleVocabulary(terms)

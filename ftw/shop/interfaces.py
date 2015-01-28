@@ -219,6 +219,13 @@ class IShopConfiguration(Interface):
             default=u"ftw.shop.DefaultPaymentProcessorStepGroup",
             required=True)
 
+    currency = schema.Choice(
+            title=_(u"label_currency",
+                    default="Currency"),
+            vocabulary="ftw.shop.currencies_vocabulary",
+            default=u"CHF",
+            required=True)
+
     enabled_payment_processors = schema.List(
             title=_(u"label_enabled_payment_processors",
                     default="Enabled Payment Processors"),
