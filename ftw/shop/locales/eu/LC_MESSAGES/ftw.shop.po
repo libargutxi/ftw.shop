@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ftw.shop\n"
-"POT-Creation-Date: 2015-02-06 09:15+0000\n"
+"POT-Creation-Date: 2015-02-24 08:04+0000\n"
 "PO-Revision-Date: 2015-01-22 09:08+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: eu <eu@li.org>\n"
@@ -91,13 +91,13 @@ msgstr "Erosgaia"
 msgid "Supplier"
 msgstr "Hornitzailea"
 
-#: ./ftw/shop/browser/templates/edit_variations.pt:79
-msgid "This article has no variations"
-msgstr "Artikulu honek ez du aldakirik"
-
 #: ./ftw/shop/interfaces.py:372
 msgid "This email address is invalid."
 msgstr "E-posta helbide hau ez da zuzena."
+
+#: ./ftw/shop/browser/templates/edit_variations.pt:79
+msgid "This item has no variations"
+msgstr "Artikulu honek ez du aldakirik"
 
 #: ./ftw/shop/portlets/cart.py:112
 msgid "This portlet displays the Shopping Cart."
@@ -269,14 +269,14 @@ msgstr "Eskariaren xehetasunak"
 msgid "heading_shop_setup"
 msgstr "Dendaren ezarpenak"
 
-#. Default: "Value"
+#. Default: "Values"
 #: ./ftw/shop/browser/templates/edit_variations.pt:35
-msgid "heading_value"
-msgstr "Balioa"
+msgid "heading_values"
+msgstr ""
 
-#. Default: "Variation ${number}"
+#. Default: "Variation Level ${level}"
 #: ./ftw/shop/browser/templates/edit_variations.pt:31
-msgid "heading_variation"
+msgid "heading_variation_level"
 msgstr "${number}. aldakia "
 
 #. Default: "This portlet displays the shopping cart contents."
@@ -351,10 +351,10 @@ msgstr "Aktibo"
 msgid "label_add_cart_portlet"
 msgstr "Erosketa saskiaren portleta gehitu"
 
-#. Default: "Add variation"
+#. Default: "Add variation level"
 #: ./ftw/shop/browser/templates/edit_variations.pt:70
-msgid "label_add_variation"
-msgstr "Aldakia gehitu"
+msgid "label_add_variation_level"
+msgstr ""
 
 #. Default: "All Suppliers"
 #: ./ftw/shop/browser/templates/order_manager.pt:54
@@ -679,10 +679,10 @@ msgstr "Telefono zenbakia"
 msgid "label_price"
 msgstr "Prezioa"
 
-#. Default: "Remove variation"
+#. Default: "Remove variation level"
 #: ./ftw/shop/browser/templates/edit_variations.pt:73
-msgid "label_remove_variation"
-msgstr "Aldakia kendu"
+msgid "label_remove_variation_level"
+msgstr ""
 
 #. Default: "Save"
 #: ./ftw/shop/browser/templates/edit_variations.pt:141
@@ -891,17 +891,17 @@ msgid "link_agb"
 msgstr ""
 
 #. Default: "Cart emptied."
-#: ./ftw/shop/browser/cart.py:325
+#: ./ftw/shop/browser/cart.py:327
 msgid "msg_cart_emptied"
 msgstr "Saskia hustu egin da."
 
 #. Default: "Invalid Values specified. Cart not updated."
-#: ./ftw/shop/browser/cart.py:347
+#: ./ftw/shop/browser/cart.py:349
 msgid "msg_cart_invalidvalue"
 msgstr "Balioak ez dira zuzenak. Saskia ez da eguneratu."
 
 #. Default: "Cart updated."
-#: ./ftw/shop/browser/cart.py:310
+#: ./ftw/shop/browser/cart.py:312
 msgid "msg_cart_updated"
 msgstr "Saskia eguneratu egin da."
 
@@ -916,27 +916,27 @@ msgid "msg_external_redirect"
 msgstr "Orain, kanpoko webgune batera bideratuko zaitugu ordainketa gauzatzeko."
 
 #. Default: "Added item to cart."
-#: ./ftw/shop/browser/cart.py:278
+#: ./ftw/shop/browser/cart.py:280
 msgid "msg_item_added"
 msgstr "Erosgaia saskian sartu duzu."
 
 #. Default: "Item is disabled and can't be added."
-#: ./ftw/shop/browser/cart.py:281
+#: ./ftw/shop/browser/cart.py:283
 msgid "msg_item_disabled"
 msgstr "Erosgaia desaktibatuta dago eta ezin da gehitu."
 
 #. Default: "Error"
-#: ./ftw/shop/browser/cart.py:399
+#: ./ftw/shop/browser/cart.py:401
 msgid "msg_label_error"
 msgstr "Errorea"
 
 #. Default: "Information"
-#: ./ftw/shop/browser/cart.py:396
+#: ./ftw/shop/browser/cart.py:398
 msgid "msg_label_info"
 msgstr "Informazioa"
 
 #. Default: "Can't proceed with empty cart."
-#: ./ftw/shop/browser/cart.py:471
+#: ./ftw/shop/browser/cart.py:473
 msgid "msg_no_cart"
 msgstr "Ezin da jarraitu saskia hutsik badago."
 

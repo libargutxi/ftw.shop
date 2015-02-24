@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-06 09:15+0000\n"
+"POT-Creation-Date: 2015-02-24 08:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Enny Rodriguez <administrador@femto.com.ve>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,12 +92,12 @@ msgstr "Artículo"
 msgid "Supplier"
 msgstr "Proveedor"
 
-#: ./ftw/shop/browser/templates/edit_variations.pt:79
-msgid "This article has no variations"
-msgstr ""
-
 #: ./ftw/shop/interfaces.py:372
 msgid "This email address is invalid."
+msgstr ""
+
+#: ./ftw/shop/browser/templates/edit_variations.pt:79
+msgid "This item has no variations"
 msgstr ""
 
 #: ./ftw/shop/portlets/cart.py:112
@@ -270,14 +270,14 @@ msgstr "Detalles de la orden"
 msgid "heading_shop_setup"
 msgstr "Configuración de la tienda"
 
-#. Default: "Value"
+#. Default: "Values"
 #: ./ftw/shop/browser/templates/edit_variations.pt:35
-msgid "heading_value"
+msgid "heading_values"
 msgstr ""
 
-#. Default: "Variation ${number}"
+#. Default: "Variation Level ${level}"
 #: ./ftw/shop/browser/templates/edit_variations.pt:31
-msgid "heading_variation"
+msgid "heading_variation_level"
 msgstr ""
 
 #. Default: "This portlet displays the shopping cart contents."
@@ -352,9 +352,9 @@ msgstr ""
 msgid "label_add_cart_portlet"
 msgstr "Añadir porlet de carrito de compra"
 
-#. Default: "Add variation"
+#. Default: "Add variation level"
 #: ./ftw/shop/browser/templates/edit_variations.pt:70
-msgid "label_add_variation"
+msgid "label_add_variation_level"
 msgstr ""
 
 #. Default: "All Suppliers"
@@ -680,9 +680,9 @@ msgstr "Número de teléfono"
 msgid "label_price"
 msgstr "Precio"
 
-#. Default: "Remove variation"
+#. Default: "Remove variation level"
 #: ./ftw/shop/browser/templates/edit_variations.pt:73
-msgid "label_remove_variation"
+msgid "label_remove_variation_level"
 msgstr ""
 
 #. Default: "Save"
@@ -892,17 +892,17 @@ msgid "link_agb"
 msgstr ""
 
 #. Default: "Cart emptied."
-#: ./ftw/shop/browser/cart.py:325
+#: ./ftw/shop/browser/cart.py:327
 msgid "msg_cart_emptied"
 msgstr "Se ha limpiado el carrito"
 
 #. Default: "Invalid Values specified. Cart not updated."
-#: ./ftw/shop/browser/cart.py:347
+#: ./ftw/shop/browser/cart.py:349
 msgid "msg_cart_invalidvalue"
 msgstr "Valores especificados no válidos. Carrito no actualizado."
 
 #. Default: "Cart updated."
-#: ./ftw/shop/browser/cart.py:310
+#: ./ftw/shop/browser/cart.py:312
 msgid "msg_cart_updated"
 msgstr "Carrito actualizado"
 
@@ -917,27 +917,27 @@ msgid "msg_external_redirect"
 msgstr "serás redirigido a un sitio externo"
 
 #. Default: "Added item to cart."
-#: ./ftw/shop/browser/cart.py:278
+#: ./ftw/shop/browser/cart.py:280
 msgid "msg_item_added"
 msgstr "Producto añadido al carrito"
 
 #. Default: "Item is disabled and can't be added."
-#: ./ftw/shop/browser/cart.py:281
+#: ./ftw/shop/browser/cart.py:283
 msgid "msg_item_disabled"
 msgstr "Producto deshabilitado. No puede ser añadido"
 
 #. Default: "Error"
-#: ./ftw/shop/browser/cart.py:399
+#: ./ftw/shop/browser/cart.py:401
 msgid "msg_label_error"
 msgstr "Error"
 
 #. Default: "Information"
-#: ./ftw/shop/browser/cart.py:396
+#: ./ftw/shop/browser/cart.py:398
 msgid "msg_label_info"
 msgstr "Información"
 
 #. Default: "Can't proceed with empty cart."
-#: ./ftw/shop/browser/cart.py:471
+#: ./ftw/shop/browser/cart.py:473
 msgid "msg_no_cart"
 msgstr "No se puede continuar con el carrito vacío"
 

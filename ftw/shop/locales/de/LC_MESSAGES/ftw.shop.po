@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ftw.shop\n"
-"POT-Creation-Date: 2015-02-06 09:15+0000\n"
+"POT-Creation-Date: 2015-02-24 08:04+0000\n"
 "PO-Revision-Date: 2015-01-22 09:06+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: 4teamwork GmbH <info@4teamwork.ch>\n"
@@ -91,13 +91,13 @@ msgstr "Shop-Artikel"
 msgid "Supplier"
 msgstr "Lieferant"
 
-#: ./ftw/shop/browser/templates/edit_variations.pt:79
-msgid "This article has no variations"
-msgstr "(Dieser Artikel enthält keine Variationen)"
-
 #: ./ftw/shop/interfaces.py:372
 msgid "This email address is invalid."
 msgstr "Diese E-Mail Adresse ist ungültig."
+
+#: ./ftw/shop/browser/templates/edit_variations.pt:79
+msgid "This item has no variations"
+msgstr "Dieser Artikel enthält keine Variationen"
 
 #: ./ftw/shop/portlets/cart.py:112
 msgid "This portlet displays the Shopping Cart."
@@ -269,15 +269,15 @@ msgstr "Details zur Bestellung"
 msgid "heading_shop_setup"
 msgstr "Shop-Einstellungen"
 
-#. Default: "Value"
+#. Default: "Values"
 #: ./ftw/shop/browser/templates/edit_variations.pt:35
-msgid "heading_value"
+msgid "heading_values"
 msgstr "Werte"
 
-#. Default: "Variation ${number}"
+#. Default: "Variation Level ${level}"
 #: ./ftw/shop/browser/templates/edit_variations.pt:31
-msgid "heading_variation"
-msgstr "Variationsstufe ${number}"
+msgid "heading_variation_level"
+msgstr "Variationsstufe ${level}"
 
 #. Default: "This portlet displays the shopping cart contents."
 #: ./ftw/shop/portlets/cart.py:101
@@ -351,10 +351,10 @@ msgstr "Aktiv"
 msgid "label_add_cart_portlet"
 msgstr "Warenkorb-Portlet hinzufügen"
 
-#. Default: "Add variation"
+#. Default: "Add variation level"
 #: ./ftw/shop/browser/templates/edit_variations.pt:70
-msgid "label_add_variation"
-msgstr "Variationsstufe hinzufügen"
+msgid "label_add_variation_level"
+msgstr ""
 
 #. Default: "All Suppliers"
 #: ./ftw/shop/browser/templates/order_manager.pt:54
@@ -679,15 +679,15 @@ msgstr "Telefonnummer"
 msgid "label_price"
 msgstr "Preis"
 
-#. Default: "Remove variation"
+#. Default: "Remove variation level"
 #: ./ftw/shop/browser/templates/edit_variations.pt:73
-msgid "label_remove_variation"
-msgstr "Variationsstufe löschen"
+msgid "label_remove_variation_level"
+msgstr ""
 
 #. Default: "Save"
 #: ./ftw/shop/browser/templates/edit_variations.pt:141
 msgid "label_save"
-msgstr ""
+msgstr "Speichern"
 
 #. Default: "Selected orders"
 #: ./ftw/shop/browser/templates/status.pt:13
@@ -891,17 +891,17 @@ msgid "link_agb"
 msgstr "http://www.4teamwork.ch"
 
 #. Default: "Cart emptied."
-#: ./ftw/shop/browser/cart.py:325
+#: ./ftw/shop/browser/cart.py:327
 msgid "msg_cart_emptied"
 msgstr "Der Warenkorb wurde geleert."
 
 #. Default: "Invalid Values specified. Cart not updated."
-#: ./ftw/shop/browser/cart.py:347
+#: ./ftw/shop/browser/cart.py:349
 msgid "msg_cart_invalidvalue"
 msgstr "Ungültige Mengenangabe. Der Warenkorb wurde nicht aktualisiert."
 
 #. Default: "Cart updated."
-#: ./ftw/shop/browser/cart.py:310
+#: ./ftw/shop/browser/cart.py:312
 msgid "msg_cart_updated"
 msgstr "Der Warenkorb wurde aktualisiert."
 
@@ -916,27 +916,27 @@ msgid "msg_external_redirect"
 msgstr "Sie werden nun auf eine externe Seite des Zahlungsanbieters weitergeleitet"
 
 #. Default: "Added item to cart."
-#: ./ftw/shop/browser/cart.py:278
+#: ./ftw/shop/browser/cart.py:280
 msgid "msg_item_added"
 msgstr "Der Artikel wurde in den Warenkorb gelegt."
 
 #. Default: "Item is disabled and can't be added."
-#: ./ftw/shop/browser/cart.py:281
+#: ./ftw/shop/browser/cart.py:283
 msgid "msg_item_disabled"
 msgstr "Artikel ist deaktiviert und kann nicht hinzugefügt werden"
 
 #. Default: "Error"
-#: ./ftw/shop/browser/cart.py:399
+#: ./ftw/shop/browser/cart.py:401
 msgid "msg_label_error"
 msgstr "Fehler"
 
 #. Default: "Information"
-#: ./ftw/shop/browser/cart.py:396
+#: ./ftw/shop/browser/cart.py:398
 msgid "msg_label_info"
 msgstr "Information"
 
 #. Default: "Can't proceed with empty cart."
-#: ./ftw/shop/browser/cart.py:471
+#: ./ftw/shop/browser/cart.py:473
 msgid "msg_no_cart"
 msgstr "Weiterfahren mit leeren Warenkorb nicht möglich"
 

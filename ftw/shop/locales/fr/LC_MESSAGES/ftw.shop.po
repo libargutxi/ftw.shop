@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-06 09:15+0000\n"
+"POT-Creation-Date: 2015-02-24 08:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Thomas Buchberger <t.buchberger@4teamwork.ch>\n"
 "Language-Team: 4teamwork GmbH <info@4teamwork.ch>\n"
@@ -93,12 +93,12 @@ msgstr "Article boutique"
 msgid "Supplier"
 msgstr ""
 
-#: ./ftw/shop/browser/templates/edit_variations.pt:79
-msgid "This article has no variations"
-msgstr ""
-
 #: ./ftw/shop/interfaces.py:372
 msgid "This email address is invalid."
+msgstr ""
+
+#: ./ftw/shop/browser/templates/edit_variations.pt:79
+msgid "This item has no variations"
 msgstr ""
 
 #: ./ftw/shop/portlets/cart.py:112
@@ -271,14 +271,14 @@ msgstr "Details d'ordres'"
 msgid "heading_shop_setup"
 msgstr "Paramètres boutique"
 
-#. Default: "Value"
+#. Default: "Values"
 #: ./ftw/shop/browser/templates/edit_variations.pt:35
-msgid "heading_value"
+msgid "heading_values"
 msgstr ""
 
-#. Default: "Variation ${number}"
+#. Default: "Variation Level ${level}"
 #: ./ftw/shop/browser/templates/edit_variations.pt:31
-msgid "heading_variation"
+msgid "heading_variation_level"
 msgstr ""
 
 #. Default: "This portlet displays the shopping cart contents."
@@ -353,9 +353,9 @@ msgstr ""
 msgid "label_add_cart_portlet"
 msgstr "Ajouter portlet de boutique"
 
-#. Default: "Add variation"
+#. Default: "Add variation level"
 #: ./ftw/shop/browser/templates/edit_variations.pt:70
-msgid "label_add_variation"
+msgid "label_add_variation_level"
 msgstr ""
 
 #. Default: "All Suppliers"
@@ -682,9 +682,9 @@ msgstr "Mobile"
 msgid "label_price"
 msgstr "Prix"
 
-#. Default: "Remove variation"
+#. Default: "Remove variation level"
 #: ./ftw/shop/browser/templates/edit_variations.pt:73
-msgid "label_remove_variation"
+msgid "label_remove_variation_level"
 msgstr ""
 
 #. Default: "Save"
@@ -895,17 +895,17 @@ msgid "link_agb"
 msgstr "http://www.amnesty.ch/fr/contacts/impressum/questions-legales/conditions-d-achat-en-ligne/"
 
 #. Default: "Cart emptied."
-#: ./ftw/shop/browser/cart.py:325
+#: ./ftw/shop/browser/cart.py:327
 msgid "msg_cart_emptied"
 msgstr "Le panier a été vidé"
 
 #. Default: "Invalid Values specified. Cart not updated."
-#: ./ftw/shop/browser/cart.py:347
+#: ./ftw/shop/browser/cart.py:349
 msgid "msg_cart_invalidvalue"
 msgstr "Nombre non valable. Le panier n'a pas été actualisé."
 
 #. Default: "Cart updated."
-#: ./ftw/shop/browser/cart.py:310
+#: ./ftw/shop/browser/cart.py:312
 msgid "msg_cart_updated"
 msgstr "Le panier a été actualisé."
 
@@ -920,27 +920,27 @@ msgid "msg_external_redirect"
 msgstr "Vous serez redirigé vers un site externe du fournisseur de paiement"
 
 #. Default: "Added item to cart."
-#: ./ftw/shop/browser/cart.py:278
+#: ./ftw/shop/browser/cart.py:280
 msgid "msg_item_added"
 msgstr "L'article a été mis dans le panier"
 
 #. Default: "Item is disabled and can't be added."
-#: ./ftw/shop/browser/cart.py:281
+#: ./ftw/shop/browser/cart.py:283
 msgid "msg_item_disabled"
 msgstr "Article disabled. Pas possible d'ajouter"
 
 #. Default: "Error"
-#: ./ftw/shop/browser/cart.py:399
+#: ./ftw/shop/browser/cart.py:401
 msgid "msg_label_error"
 msgstr "Erreur"
 
 #. Default: "Information"
-#: ./ftw/shop/browser/cart.py:396
+#: ./ftw/shop/browser/cart.py:398
 msgid "msg_label_info"
 msgstr "Information"
 
 #. Default: "Can't proceed with empty cart."
-#: ./ftw/shop/browser/cart.py:471
+#: ./ftw/shop/browser/cart.py:473
 msgid "msg_no_cart"
 msgstr "Commande n'est pas possible avec un panier vide"
 
