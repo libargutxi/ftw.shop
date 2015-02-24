@@ -195,30 +195,4 @@
     directory="resources"
     />
 
-  <browser:resource
-    name="ftw_shop.css"
-    file="resources/ftw_shop.css"
-    />
-
-  <browser:resource
-    name="shop.js"
-    file="resources/shop.js"
-    />
-
-  <browser:resource
-    name="shop_config.js"
-    file="resources/shop_config.js"
-    />
-
-  <browser:resource
-    name="contactform_prefill.js"
-    file="resources/contactform_prefill.js"
-    />
-
-
-  <browser:resource
-    name="jquery-ui-i18n-manual.js"
-    file="resources/jquery-ui-i18n-manual.js"
-    />
-
 </configure>
