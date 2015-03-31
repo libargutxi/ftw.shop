@@ -1,6 +1,7 @@
 from decimal import Decimal
 from ftw.shop.interfaces import IShopConfiguration
 from ftw.shop.testing import FTW_SHOP_INTEGRATION_TESTING
+from ftw.shop.testing import FTW_SHOP_FUNCTIONAL_TESTING
 from ftw.shop.tests.base import FtwShopTestCase
 from plone.registry.interfaces import IRegistry
 from zope.component import getMultiAdapter
@@ -12,7 +13,7 @@ import unittest
 
 class TestCurrency(FtwShopTestCase):
 
-    layer = FTW_SHOP_INTEGRATION_TESTING
+    layer = FTW_SHOP_FUNCTIONAL_TESTING
 
     def test_which_is_default_currency(self):
         registry = getUtility(IRegistry)
