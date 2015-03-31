@@ -86,9 +86,16 @@ class ShoppingCartAdapter(object):
         for item in items.values():
             total += Decimal(item['total'])
 
-        total += self.get_shipping_costs()
-
         return str(total)
+
+    def get_full_total(self):
+        """ Return the cart's full total as a string.
+            full total is: cart total + taxes + shipping + shipping taxes
+        """
+
+        total = Decimal(self.get_total())
+        vat = Decimal(self.get_vat())
+        return str(total + vat + self.get_shipping_costs())
 
     def get_shipping_costs(self):
         return self.get_shipping_rate() + self.get_shipping_taxes()
@@ -432,6 +439,11 @@ class CartView(BrowserView):
         """Return the cart's total as a string
         """
         return self.cart.get_total()
+
+    def cart_full_total(self):
+        """Return the cart's full total (total + vat + shipping)
+        """
+        return self.cart.get_full_total()
 
     def cart_vat(self):
         """Return the cart's total VAT as a string

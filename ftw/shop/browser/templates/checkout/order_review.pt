@@ -89,7 +89,7 @@
           </tal:shippingcosts>
 
           <tr>
-              <td><strong i18n:translate="">Total</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart_total"></td>
+              <td><strong i18n:translate="">Total</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart_full_total"></td>
           </tr>
 
         </tfoot>

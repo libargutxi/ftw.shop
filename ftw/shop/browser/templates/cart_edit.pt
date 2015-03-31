@@ -70,26 +70,25 @@
                     </tr>
                   </metal:block>
         <tfoot>
+          <tr tal:condition="python:cview.shop_config().vat_enabled">
+              <td><strong i18n:translate="label_vat">VAT</strong></td><td></td><td></td><td></td><td><span tal:replace="here/@@selected_currency_name" /> <span tal:replace="cview/cart_vat"/></td><td></td>
+          </tr>
           <tal:shippingcosts condition="cview/cart/get_shipping_costs">
           <tr>
-            <td><span i18n:translate="label_shipping_rate">Shipping rate</span></td><td></td><td></td><td></td><td tal:content="cview/cart/get_shipping_rate"></td>
+            <td><span i18n:translate="label_shipping_rate">Shipping rate</span></td><td></td><td></td><td></td><td><span tal:replace="here/@@selected_currency_name" /> <span tal:replace="cview/cart/get_shipping_rate"/></td>
           </tr>
           <tr>
-            <td><span i18n:translate="label_shipping_taxes">Shipping taxes</span></td><td></td><td></td><td></td><td tal:content="cview/cart/get_shipping_taxes"></td>
+            <td><span i18n:translate="label_shipping_taxes">Shipping taxes</span></td><td></td><td></td><td></td><td><span tal:replace="here/@@selected_currency_name" /> <span tal:replace="cview/cart/get_shipping_taxes"/></td>
           </tr>
           </tal:shippingcosts>
-                            <tr tal:condition="cview/show_prices">
-                      <td><strong i18n:translate="">Total</strong></td><td></td><td></td><td></td><td><b>CHF <span tal:content="cview/cart_total">US$ 100.00</span></b></td>
-                  </tr>
+          <tr tal:condition="cview/show_prices">
+            <td><strong i18n:translate="">Total</strong></td><td></td><td></td><td></td><td><b><span tal:replace="here/@@selected_currency_name" /> <span tal:replace="cview/cart_full_total">US$ 100.00</span></b></td><td></td>
+          </tr>
 
         </tfoot>
                 </tbody>
               </table>
-              <div>
-                  <p tal:condition="cview/show_prices">
-                      Total: <b><span tal:replace="here/@@selected_currency_name" /> <span tal:content="cview/cart_total">US$ 100.00</span></b>
-                  </p>
-              </div>
+
               <div>
                 <input class="context"
                        type="submit"

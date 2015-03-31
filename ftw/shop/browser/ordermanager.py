@@ -380,7 +380,7 @@ class OrderManagerView(BrowserView):
                                              shipping_data=shipping_data,
                                              shipping_costs=shipping_costs,
                                              shipping_taxes=shipping_taxes,
-                                             total=cart_view.cart_total(),
+                                             total=cart_view.cart_full_total(),
                                              cart_data=cart_data)
         order_storage.flush()
 
