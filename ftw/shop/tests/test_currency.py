@@ -33,7 +33,7 @@ class TestCurrency(FtwShopTestCase):
         self.c_name = getMultiAdapter((self.movie, self.portal.REQUEST),
             name='selected_currency_name')
 
-        self.assertEquals(self.c_name(), 'Eur')
+        self.assertEquals(self.c_name(), '\xe2\x82\xac')
 
 
 def test_suite():
