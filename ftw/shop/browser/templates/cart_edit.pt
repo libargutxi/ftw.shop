@@ -85,7 +85,11 @@
         </tfoot>
                 </tbody>
               </table>
-
+              <div>
+                  <p tal:condition="cview/show_prices">
+                      Total: <b><span tal:replace="here/@@selected_currency_name" /> <span tal:content="cview/cart_total">US$ 100.00</span></b>
+                  </p>
+              </div>
               <div>
                 <input class="context"
                        type="submit"

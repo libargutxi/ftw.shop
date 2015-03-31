@@ -83,4 +83,24 @@
         directory="profiles/2002"
         />
 
+    <!-- 2002 -> 2003 -->
+    <upgrade-step:importProfile
+        title="Register currency selection options"
+        description=""
+        source="2002"
+        destination="2003"
+        profile="ftw.shop:default"
+        directory="profiles/2003"
+        />
+
+    <gs:upgradeStep
+        title="Add currency configuration option"
+        description=""
+        source="2002"
+        destination="2003"
+        handler="ftw.shop.upgrades.to2003.to_2003"
+        profile="ftw.shop:default"
+        />
+
+
 </configure>
