@@ -14,6 +14,7 @@ from zope.i18n import translate
 
 from ftw.shop import shopMessageFactory as _
 from ftw.shop.interfaces import IVariationConfig
+from ftw.shop.browser.cart import calc_vat
 
 
 class ShopItemView(BrowserView):
@@ -175,7 +176,7 @@ class EditVariationsView(BrowserView):
             pps = getMultiAdapter((self.context, self.request), name='plone_portal_state')
             language = pps.language()
             new_description = translate(_('label_new_description', default=u'New description'), domain='ftw.shop', context=self.context, target_language=language)
-            DEFAULT_VARDATA = {'active':True, 'price': '0.00', 'skuCode': '99999', 'description': new_description}
+            DEFAULT_VARDATA = {'active':True, 'price': '0.00', 'total_price': '0.00', 'vat': '0.00', 'skuCode': '99999', 'description': new_description}
 
 
             if len(variation_config.getVariationAttributes()) == 2:
@@ -326,7 +327,6 @@ class EditVariationsView(BrowserView):
                     new_vcode = code_map[old_vcode]
                     new_var_dict[new_vcode] = var_dict[old_vcode]
 
-
             # # Finally purge and update the var_dict
             variation_config.purge_dict()
             variation_config.updateVariationConfig(new_var_dict)
@@ -398,6 +398,8 @@ class EditVariationsView(BrowserView):
                     else:
                         data['price'] = Decimal("0.00")
 
+                data['vat'] = self.context.getField('vat').get(self.context)
+                data['total_price'] = str(data['price'] + calc_vat(data['vat'], data['price']))
                 data['skuCode'] = form.get("%s-skuCode" % variation_code)
                 data['description'] = form.get("%s-description" % variation_code)
 
