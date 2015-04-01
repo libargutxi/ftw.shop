@@ -2,12 +2,13 @@
 """
 
 from Acquisition import aq_parent
+from plone.registry.interfaces import IRegistry
 from Products.Archetypes import atapi
+from Products.Archetypes.public import AnnotationStorage
+from Products.ATContentTypes.configuration import zconf
 from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
-from Products.ATContentTypes.configuration import zconf
-from Products.Archetypes.public import AnnotationStorage
-
+from zope.component import getUtility
 from zope.interface import implements, alsoProvides
 
 try:
@@ -24,10 +25,12 @@ if HAS_LINGUA_PLONE:
 else:
     from Products.Archetypes.atapi import registerType
 
-from ftw.shop.interfaces import IShopItem, IBuyable
-from ftw.shop.content.categorizeable import Categorizeable
-from ftw.shop.config import PROJECTNAME
 from ftw.shop import shopMessageFactory as _
+from ftw.shop.browser.cart import calc_vat
+from ftw.shop.config import PROJECTNAME
+from ftw.shop.content.categorizeable import Categorizeable
+from ftw.shop.interfaces import IShopConfiguration
+from ftw.shop.interfaces import IShopItem, IBuyable
 
 
 ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
@@ -163,6 +166,15 @@ class ShopItem(Categorizeable, ATCTContent):
 
     meta_type = "ShopItem"
     schema = ShopItemSchema
+
+    def total_price(self):
+        registry = getUtility(IRegistry)
+        shop_config = registry.forInterface(IShopConfiguration)
+        if shop_config.vat_enabled:
+            vat = self.getField('vat').get(self)
+            return str(self.price + calc_vat(vat, self.price))
+        else:
+            return str(self.price)
 
 
 def add_to_containing_category(context, event):
