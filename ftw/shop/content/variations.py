@@ -1,6 +1,7 @@
 from decimal import Decimal
 from decimal import InvalidOperation
 from ftw.shop import shopMessageFactory as _
+from ftw.shop.browser.cart import calc_vat
 from ftw.shop.interfaces import IVariationConfig, IShopItem
 from persistent.mapping import PersistentMapping
 from zope.annotation.interfaces import IAnnotations
@@ -10,7 +11,6 @@ from zope.globalrequest import getRequest
 from zope.i18n import translate
 from zope.interface import implements
 import itertools
-
 
 try:
     dummy = type(all)
@@ -127,15 +127,23 @@ class VariationConfig(object):
             # We have two levels of variation
             variation_code = "var-%s-%s" % (var1_idx, var2_idx)
         var_data = variation_dict.get(variation_code, None)
+
         if var_data is not None and field in var_data.keys():
             if not var_data[field] == "":
                 return var_data[field]
+        elif var_data is not None and field == 'total_price':
+            price = var_data.get('price')
+            if not price == "":
+                vat = self.context.getField('vat').get(self.context)
+                return str(price + calc_vat(vat, price))
 
         # Return a default value appropriate for the field type
         if field == 'active':
             return True
         elif field == 'price':
             return Decimal("%s.%02d" % self.context.price)
+        elif field == 'total_price':
+            return self.context.total_price()
         elif field == 'skuCode':
             return self.context.skuCode
         elif field == 'description':
@@ -233,7 +241,7 @@ class VariationConfig(object):
 
 
     def add_level(self):
-        fields = ['active', 'skuCode', 'price', 'description']
+        fields = ['active', 'skuCode', 'price', 'description', 'total_price', 'vat']
         request = getRequest()
         pps = getMultiAdapter((self.context, request), name='plone_portal_state')
         language = pps.language()
