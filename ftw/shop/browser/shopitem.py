@@ -81,6 +81,8 @@ class ShopItemView(BrowserView):
                                 variants = None,
                                 skuCode = skuCode,
                                 price = price,
+                                vat = item.getField('vat').get(item),
+                                total_price = item.total_price(),
                                 showPrice = item.getField('showPrice').get(item),
                                 uid = item.UID(),
                                 varConf = varConf,
