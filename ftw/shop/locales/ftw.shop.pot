@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-19 14:50+0000\n"
+"POT-Creation-Date: 2015-04-17 14:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Thomas Buchberger <t.buchberger@4teamwork.ch>\n"
 "Language-Team: 4teamwork GmbH <info@4teamwork.ch>\n"
@@ -10,6 +10,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
+
+#: ./ftw/shop/browser/templates/controlpanel.pt:19
+msgid "(This creates a ShopCategory called 'Shop' in your site root, marks it with the marker interface IShopRoot and assigns the Shopping Cart Portlet to the right column for it)"
+msgstr ""
 
 #: ./ftw/shop/profiles/default/types/ShopCategory.xml
 msgid "A category for shop items"
@@ -29,22 +33,31 @@ msgstr ""
 msgid "Add to cart"
 msgstr ""
 
+#: ./ftw/shop/browser/templates/order_manager.pt:79
+msgid "CSV export"
+msgstr ""
+
 #: ./ftw/shop/profiles/default/types/ShopCategory.xml
 #: ./ftw/shop/profiles/default/types/ShopItem.xml
 msgid "Categories"
 msgstr ""
 
 #: ./ftw/shop/browser/templates/order_manager.pt:129
+#: ./ftw/shop/browser/templates/order_view.pt:38
 #: ./ftw/shop/browser/templates/status.pt:38
 msgid "Change status"
 msgstr ""
 
-#: ./ftw/shop/browser/templates/cart_edit.pt:91
+#: ./ftw/shop/browser/templates/cart_edit.pt:92
 msgid "Checkout"
 msgstr ""
 
 #: ./ftw/shop/portlets/cart.py:33
 msgid "Conditions under which portlet should be shown"
+msgstr ""
+
+#: ./ftw/shop/browser/templates/checkout/external.pt:11
+msgid "Continue to external payment processor..."
 msgstr ""
 
 #: ./ftw/shop/browser/templates/order_manager.pt:130
@@ -59,12 +72,24 @@ msgstr ""
 msgid "Edit Shopping Cart portlet"
 msgstr ""
 
-#: ./ftw/shop/browser/templates/cart_edit.pt:85
+#: ./ftw/shop/browser/templates/cart_edit.pt:86
 msgid "Empty Shopping Cart"
 msgstr ""
 
 #: ./ftw/shop/browser/templates/order_manager.pt:80
 msgid "Filter"
+msgstr ""
+
+#: ./ftw/shop/browser/templates/checkout/external.pt:8
+msgid "If you're not automatically redirected, please click here:"
+msgstr ""
+
+#: ./ftw/shop/browser/templates/controlpanel.pt:15
+msgid "Initialize Shop Structure"
+msgstr ""
+
+#: ./ftw/shop/browser/templates/order_view.pt:18
+msgid "Order ${number}"
 msgstr ""
 
 #: ./ftw/shop/browser/templates/listing/one_variation_compact.pt:48
@@ -93,7 +118,7 @@ msgstr ""
 msgid "This email address is invalid."
 msgstr ""
 
-#: ./ftw/shop/browser/templates/edit_variations.pt:79
+#: ./ftw/shop/browser/templates/edit_variations.pt:81
 msgid "This item has no variations"
 msgstr ""
 
@@ -101,12 +126,22 @@ msgstr ""
 msgid "This portlet displays the Shopping Cart."
 msgstr ""
 
+#: ./ftw/shop/browser/templates/checkout/order_review.pt:82
+#: ./ftw/shop/browser/templates/order_manager.pt:94
+msgid "Total"
+msgstr ""
+
 #: ./ftw/shop/browser/templates/edit_categories.pt:126
 msgid "Update"
 msgstr ""
 
-#: ./ftw/shop/browser/templates/cart_edit.pt:79
+#: ./ftw/shop/browser/templates/cart_edit.pt:80
 msgid "Update Cart"
+msgstr ""
+
+#: ./ftw/shop/browser/templates/listing/one_variation_compact.pt:75
+#: ./ftw/shop/browser/templates/listing/two_variations_compact.pt:86
+msgid "Variation"
 msgstr ""
 
 #: ./ftw/shop/profiles/default/types/ShopItem.xml
@@ -262,12 +297,12 @@ msgid "heading_shop_setup"
 msgstr ""
 
 #. Default: "Values"
-#: ./ftw/shop/browser/templates/edit_variations.pt:35
+#: ./ftw/shop/browser/templates/edit_variations.pt:37
 msgid "heading_values"
 msgstr ""
 
 #. Default: "Variation Level ${level}"
-#: ./ftw/shop/browser/templates/edit_variations.pt:31
+#: ./ftw/shop/browser/templates/edit_variations.pt:33
 msgid "heading_variation_level"
 msgstr ""
 
@@ -334,7 +369,7 @@ msgid "help_vat_rates"
 msgstr ""
 
 #. Default: "Active"
-#: ./ftw/shop/browser/templates/edit_variations.pt:99
+#: ./ftw/shop/browser/templates/edit_variations.pt:101
 msgid "label_active"
 msgstr ""
 
@@ -344,7 +379,7 @@ msgid "label_add_cart_portlet"
 msgstr ""
 
 #. Default: "Add variation level"
-#: ./ftw/shop/browser/templates/edit_variations.pt:70
+#: ./ftw/shop/browser/templates/edit_variations.pt:72
 msgid "label_add_variation_level"
 msgstr ""
 
@@ -427,7 +462,7 @@ msgid "label_company"
 msgstr ""
 
 #. Default: "Configurate Variations"
-#: ./ftw/shop/browser/templates/edit_variations.pt:21
+#: ./ftw/shop/browser/templates/edit_variations.pt:23
 msgid "label_config_variations"
 msgstr ""
 
@@ -469,7 +504,7 @@ msgid "label_default_shipping_address_step"
 msgstr ""
 
 #. Default: "Description"
-#: ./ftw/shop/browser/templates/edit_variations.pt:105
+#: ./ftw/shop/browser/templates/edit_variations.pt:107
 #: ./ftw/shop/browser/templates/listing/one_variation.pt:13
 #: ./ftw/shop/browser/templates/listing/one_variation_compact.pt:78
 msgid "label_description"
@@ -482,25 +517,13 @@ msgstr ""
 msgid "label_details_comments"
 msgstr ""
 
-msgid "label_details_family"
-msgstr ""
-
-msgid "label_details_firm"
-msgstr ""
-
-msgid "label_details_mr"
-msgstr ""
-
-msgid "label_details_ms"
-msgstr ""
-
 #. Default: "Edit cart"
 #: ./ftw/shop/portlets/cart.pt:43
 msgid "label_edit_cart"
 msgstr ""
 
 #. Default: "Edit variations"
-#: ./ftw/shop/browser/templates/edit_variations.pt:85
+#: ./ftw/shop/browser/templates/edit_variations.pt:87
 #: ./ftw/shop/browser/templates/listing/one_variation.pt:33
 #: ./ftw/shop/browser/templates/listing/one_variation_compact.pt:60
 msgid "label_edit_variations"
@@ -660,19 +683,19 @@ msgid "label_phone_number"
 msgstr ""
 
 #. Default: "Price"
-#: ./ftw/shop/browser/templates/edit_variations.pt:103
+#: ./ftw/shop/browser/templates/edit_variations.pt:105
 #: ./ftw/shop/browser/templates/listing/one_variation.pt:11
 #: ./ftw/shop/browser/templates/listing/one_variation_compact.pt:22
 msgid "label_price"
 msgstr ""
 
 #. Default: "Remove variation level"
-#: ./ftw/shop/browser/templates/edit_variations.pt:73
+#: ./ftw/shop/browser/templates/edit_variations.pt:75
 msgid "label_remove_variation_level"
 msgstr ""
 
 #. Default: "Save"
-#: ./ftw/shop/browser/templates/edit_variations.pt:141
+#: ./ftw/shop/browser/templates/edit_variations.pt:143
 msgid "label_save"
 msgstr ""
 
@@ -725,7 +748,7 @@ msgid "label_sku_code"
 msgstr ""
 
 #. Default: "SKU code"
-#: ./ftw/shop/browser/templates/edit_variations.pt:104
+#: ./ftw/shop/browser/templates/edit_variations.pt:106
 msgid "label_sku_code_required"
 msgstr ""
 
@@ -855,21 +878,18 @@ msgstr ""
 msgid "label_zipcode"
 msgstr ""
 
-msgid "link_agb"
-msgstr ""
-
 #. Default: "Cart emptied."
-#: ./ftw/shop/browser/cart.py:303
+#: ./ftw/shop/browser/cart.py:305
 msgid "msg_cart_emptied"
 msgstr ""
 
 #. Default: "Invalid Values specified. Cart not updated."
-#: ./ftw/shop/browser/cart.py:325
+#: ./ftw/shop/browser/cart.py:327
 msgid "msg_cart_invalidvalue"
 msgstr ""
 
 #. Default: "Cart updated."
-#: ./ftw/shop/browser/cart.py:288
+#: ./ftw/shop/browser/cart.py:290
 msgid "msg_cart_updated"
 msgstr ""
 
@@ -884,27 +904,27 @@ msgid "msg_external_redirect"
 msgstr ""
 
 #. Default: "Added item to cart."
-#: ./ftw/shop/browser/cart.py:256
+#: ./ftw/shop/browser/cart.py:258
 msgid "msg_item_added"
 msgstr ""
 
 #. Default: "Item is disabled and can't be added."
-#: ./ftw/shop/browser/cart.py:259
+#: ./ftw/shop/browser/cart.py:261
 msgid "msg_item_disabled"
 msgstr ""
 
 #. Default: "Error"
-#: ./ftw/shop/browser/cart.py:377
+#: ./ftw/shop/browser/cart.py:379
 msgid "msg_label_error"
 msgstr ""
 
 #. Default: "Information"
-#: ./ftw/shop/browser/cart.py:374
+#: ./ftw/shop/browser/cart.py:376
 msgid "msg_label_info"
 msgstr ""
 
 #. Default: "Can't proceed with empty cart."
-#: ./ftw/shop/browser/cart.py:449
+#: ./ftw/shop/browser/cart.py:451
 msgid "msg_no_cart"
 msgstr ""
 
@@ -1015,12 +1035,12 @@ msgid "title_default_shipping_address_step_group"
 msgstr ""
 
 #. Default: "Status"
-#: ./ftw/shop/browser/templates/order_view.pt:22
+#: ./ftw/shop/browser/templates/order_view.pt:25
 msgid "title_order_status"
 msgstr ""
 
 #. Default: "Ordered Items"
-#: ./ftw/shop/browser/templates/order_view.pt:94
+#: ./ftw/shop/browser/templates/order_view.pt:97
 msgid "title_ordered_items"
 msgstr ""
 
@@ -1095,7 +1115,7 @@ msgid "txt_total"
 msgstr ""
 
 #. Default: "(incl. VAT)"
-#: ./ftw/shop/browser/templates/order_view.pt:121
+#: ./ftw/shop/browser/templates/order_view.pt:124
 msgid "txt_vat"
 msgstr ""
 
