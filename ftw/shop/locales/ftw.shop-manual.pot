@@ -8,17 +8,3 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "label_details_ms"
-msgstr ""
-
-msgid "label_details_mr"
-msgstr ""
-
-msgid "label_details_family"
-msgstr ""
-
-msgid "label_details_firm"
-msgstr ""
-
-msgid "link_agb"
-msgstr ""
