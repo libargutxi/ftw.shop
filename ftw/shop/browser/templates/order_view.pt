@@ -35,7 +35,7 @@
                     tal:content="term/title">Status Title</option>
         </select>
 
-        <input type="submit" value="Change status" class="submit-widget button-field context" name="form.buttons.save" id="form-buttons-save">
+        <input type="submit" value="Change status" i18n:attributes="value" class="submit-widget button-field context" name="form.buttons.save" id="form-buttons-save" />
     </form>
 
     <h2 i18n:translate="title_personal_information">Personal Information</h2>

@@ -6,12 +6,12 @@
 
   <div metal:fill-slot="main">
 
-		If you're not automatically redirected, please click here:
+      <p i18n:translate="">If you're not automatically redirected, please click here:</p>
 		<form action="" method="post" tal:attributes="action context/REQUEST/SESSION/external-processor-url">
 			<input type="hidden" name="order_id" value="3245345" />
-			<input value="Continue to external payment processor..." type="submit" />	
+			<input value="Continue to external payment processor..." type="submit" />
 		</form>
 	</div>
-	
+
   </body>
 </html>

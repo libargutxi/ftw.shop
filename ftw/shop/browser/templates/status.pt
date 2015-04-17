@@ -35,7 +35,7 @@
                             tal:content="term/title">Status Title</option>
                 </select>
 
-               <input i18n:attributes="value" type="submit" name="change_status" value="Change status">
+               <input i18n:attributes="value" type="submit" name="change_status" value="Change status"/>
 
             </p>
 
