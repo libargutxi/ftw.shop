@@ -1,9 +1,9 @@
-<tal:block 
+<tal:block
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="ftw.shop">
 
       <h1 i18n:translate="label_summary">Summary</h1>
-      
+
       <h2 i18n:translate="label_personal_information">Personal Information</h2>
 
       <ul style="list-style:none" tal:define="customer python:view.wizard.session['contact_information'];"
@@ -22,7 +22,7 @@
           <li><span i18n:translate="label_phone">Phone</span>: <span tal:content="customer/phone"/></li>
 
 
-          <li tal:condition="customer/comments"> 
+          <li tal:condition="customer/comments">
               <span i18n:translate="label_comments">Comments</span>: <span tal:content="customer/comments"/></li>
           <li><br/></li>
       </ul>
@@ -79,7 +79,7 @@
           </tr>
 
           <tr>
-              <td><strong>Total</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart_total"></td>
+              <td><strong i18n:translate="">Total</strong></td><td></td><td></td><td></td><td tal:content="context/REQUEST/cart_view/cart_total"></td>
           </tr>
 
         </tfoot>

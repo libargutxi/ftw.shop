@@ -74,7 +74,7 @@
                                    Edit variations</a></dd>
                         </dl>
 
-                        <input type="hidden" name="uid" type="text" tal:attributes="value item/uid" />
+                        <input type="hidden" name="uid" tal:attributes="value item/uid" />
                     </form>
 
                     <!-- Description Table -->
@@ -83,7 +83,7 @@
                             tal:define="varDict varConf/getVariationDict"
                             style="display: none;">
                          <thead>
-                             <th>Variation</th>
+                             <th i18n:translate="">Variation</th>
                              <th i18n:translate="label_price">Price</th>
                              <th i18n:translate="label_sku_code">SKU code</th>
                              <th i18n:translate="label_description">Description</th>

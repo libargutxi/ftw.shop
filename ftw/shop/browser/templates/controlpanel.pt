@@ -1,6 +1,6 @@
 <metal:page use-macro="context/@@manage-shop-settings-template/admin"
 	    i18n:domain="ftw.shop">
-  <metal:block fill-slot="up_to_parent"> 	    
+  <metal:block fill-slot="up_to_parent">
 	    <a href=""
 	       class="link-parent"
 	       tal:attributes="href string: $portal_url/plone_control_panel"
@@ -10,15 +10,18 @@
 	    </a><br/><br/>
   </metal:block>
   <metal:block fill-slot="admin_content">
-  
+
   <p>
-      <a href="" 
+      <a href=""
+      i18n:translate=""
       tal:attributes="href string: $portal_url/initialize-shop-structure">
       Initialize Shop Structure</a>
-      (This creates a ShopCategory called 'Shop' in your site root, marks it with the marker 
+      <span i18n:translate="">
+      (This creates a ShopCategory called 'Shop' in your site root, marks it with the marker
       interface IShopRoot and assigns the Shopping Cart Portlet to the right column for it)
+    </span>
   </p>
-  
+
   <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
 
 
