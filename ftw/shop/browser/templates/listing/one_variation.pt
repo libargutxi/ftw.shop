@@ -22,7 +22,7 @@
                                               hasUniqueSKU python:varConf.getVariationData(repeat['varValue1'].index, None, 'hasUniqueSKU')"
                                      tal:condition="active">
                                      <td tal:content="varValue1">S</td>
-                                     <td tal:condition="python: not varConf.allPricesZero() and item['showPrice']">
+                                     <td>
                                         <tal:condition condition="python:price != '0.00'">
                                             <span tal:replace="here/@@selected_currency_name" />
                                             <span tal:content="price"/>
