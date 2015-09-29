@@ -105,6 +105,7 @@
                                     <th i18n:translate="label_price">Price</th>
                                     <th i18n:translate="label_sku_code_required">SKU code</th>
                                     <th i18n:translate="label_description">Description</th>
+                                    <th i18n:translate="label_test">test</th>
                                 </tr>
                             </thead>
                             <tbody class="sortable">
@@ -134,6 +135,12 @@
                                                tal:attributes="name string:${vcode}-description;
                                                                value python:varConf.getVariationData(v1idx, None, 'description')"/>
                                     </td>
+                                    <td>
+                                        <input type="text" class="width100"
+                                               tal:attributes="name string:${vcode}-test;
+                                                               value python:varConf.getVariationData(v1idx, None, 'test')"/>
+                                    </td>
+
                                 </tal:vcode>
                                 </tal:v1idx>
                                 </tr>
@@ -198,6 +205,7 @@
                                                    tal:attributes="name string:${vcode}-description;
                                                                    value python:varConf.getVariationData(v1idx, v2idx, 'description')"/>
                                         </td>
+
                                     </tal:vcode>
                                     </tal:v2idx>
                                     </tr>

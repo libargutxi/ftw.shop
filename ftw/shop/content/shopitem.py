@@ -10,7 +10,7 @@ from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from zope.component import getUtility
 from zope.interface import implements, alsoProvides
-
+from decimal import Decimal
 try:
     # Plone 4
     from zope.lifecycleevent import ObjectRemovedEvent
@@ -170,11 +170,12 @@ class ShopItem(Categorizeable, ATCTContent):
     def total_price(self):
         registry = getUtility(IRegistry)
         shop_config = registry.forInterface(IShopConfiguration)
+        price = self.getField('price').get(self)
         if shop_config.vat_enabled:
             vat = self.getField('vat').get(self)
-            return str(self.price + calc_vat(vat, self.price))
+            return Decimal(price) + calc_vat(vat, price)
         else:
-            return str(self.price)
+            return Decimal(price)
 
 
 def add_to_containing_category(context, event):

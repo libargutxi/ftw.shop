@@ -8,7 +8,7 @@
                          <thead>
                              <tr>
                                  <th tal:content="python: varConf.getVariationAttributes()[0]">Red</th>
-                                 <th tal:condition="python: not varConf.allPricesZero() and item['showPrice']" i18n:translate="label_price">Price</th>
+                                 <th i18n:translate="label_price">Price</th>
                                  <th i18n:translate="label_sku_code">SKU code</th>
                                  <th i18n:translate="label_description">Description</th>
                              </tr>
@@ -17,12 +17,20 @@
                              <tal:block tal:repeat="varValue1 varConf/getVariation1Values">
                                  <tr tal:define="active python:varConf.getVariationData(repeat['varValue1'].index, None, 'active');
                                               skuCode python:varConf.getVariationData(repeat['varValue1'].index, None, 'skuCode');
-                                              price python:varConf.getVariationData(repeat['varValue1'].index, None, 'price');
+                                              price python:varConf.getVariationData(repeat['varValue1'].index, None, 'total_price');
                                               description python:varConf.getVariationData(repeat['varValue1'].index, None, 'description');
                                               hasUniqueSKU python:varConf.getVariationData(repeat['varValue1'].index, None, 'hasUniqueSKU')"
                                      tal:condition="active">
                                      <td tal:content="varValue1">S</td>
-                                     <td tal:condition="python: not varConf.allPricesZero() and item['showPrice']"><span tal:replace="here/@@selected_currency_name" /> <span tal:content="price"/></td>
+                                     <td tal:condition="python: not varConf.allPricesZero() and item['showPrice']">
+                                        <tal:condition condition="python:price != '0.00'">
+                                            <span tal:replace="here/@@selected_currency_name" />
+                                            <span tal:content="price"/>
+                                        </tal:condition>
+                                        <tal:condition condition="python:price == '0.00'">
+                                            <span i18n:domain="neurtek.theme" i18n:translate="request-price">Request price</span>
+                                        </tal:condition>
+                                    </td>
                                      <td><span tal:content="skuCode"/></td>
                                      <td><span tal:content="description"/></td>
                                      <td style="white-space: nowrap;">
@@ -36,13 +44,14 @@
                                                             Edit variations</a></dd>
                                          </dl>
 
-                                         <form tal:condition="varConf/isValid" tal:attributes="action string:${item/url}/addtocart">
+                                         <form tal:condition="python:varConf.isValid() and price != '0.00'" tal:attributes="action string:${item/url}/addtocart">
                                              <input type="hidden" name="varchoice1" tal:attributes="value repeat/varValue1/index"/>
                                              <input type="hidden" name="skuCode" tal:attributes="value skuCode"/>
                                              <input type="text" size="2" name="quantity:int" value="1"/>
                                              <input class="allowMultiSubmit" name="addtocart" type="submit"
                                                     value="Add to cart" i18n:attributes="value" />
                                          </form>
+                                         <span tal:condition="python:price == '0.00'" i18n:domain="neurtek.theme" i18n:translate="request-price">Request price</span>
                                      </td>
                                  </tr>
                              </tal:block>

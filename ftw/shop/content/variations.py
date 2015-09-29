@@ -135,7 +135,7 @@ class VariationConfig(object):
             price = var_data.get('price')
             if not price == "":
                 vat = self.context.getField('vat').get(self.context)
-                return str(price + calc_vat(vat, price))
+                return str(Decimal(price) + calc_vat(vat, price))
 
         # Return a default value appropriate for the field type
         if field == 'active':

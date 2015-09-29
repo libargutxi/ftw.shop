@@ -158,7 +158,6 @@ class EditVariationsView(BrowserView):
             variation_config = IVariationConfig(self.context)
             variation_config.add_level()
 
-
         if form.get('addvalue'):
             fn = None
             idx_and_pos = form.get('addvalue')
@@ -406,6 +405,7 @@ class EditVariationsView(BrowserView):
             # At this point the form has already been validated,
             # so uniqueness of sku codes is ensured
             data['hasUniqueSKU'] = True
+            data['test'] = form.get("%s-test" % variation_code)
             return data
 
 
