@@ -45,10 +45,10 @@ ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
             storage=AnnotationStorage(),
                 sizes= {'large': (768, 768),
                          'mini': (200, 200),
+                         'preview': (400, 400),
                          'thumb': (128, 128),
                   },
             ),
-
 
         atapi.TextField(
             'text',
@@ -67,6 +67,7 @@ ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
                 rows=25,
                 allow_file_upload = zconf.ATDocument.allow_document_upload),
             ),
+
         atapi.FixedPointField(
             'price',
             default = "0.00",
@@ -76,6 +77,7 @@ ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
                 label = _(u"label_price", default=u"Price"),
                 description = _(u"desc_price", default=u""),
                 size=8,
+                visible={'view': 'invisible', 'edit': 'invisible'},
                 ),
             ),
 
@@ -86,6 +88,7 @@ ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
             widget = atapi.BooleanWidget(
                 label = _(u"label_show_price", default=u"Show price"),
                 description = _(u"desc_show_price", default=u""),
+                visible={'view': 'invisible', 'edit': 'invisible'},
                 ),
             ),
 
@@ -96,6 +99,7 @@ ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
             widget = atapi.StringWidget(
                 label = _(u"label_sku_code", default=u"SKU code"),
                 description = _(u"desc_sku_code", default=u""),
+                visible={'view': 'invisible', 'edit': 'invisible'},
                 ),
             ),
 
@@ -120,7 +124,6 @@ ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
                 visible={'view': 'invisible', 'edit': 'invisible'},
                 ),
             ),
-
 
         atapi.StringField(
             'variation2_attribute',

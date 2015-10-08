@@ -15,7 +15,7 @@
   <property name="allowed_content_types">
       <element value="ShopCategory"/>
       <element value="ShopItem"/>
- </property>   
+ </property>
   <property name="allow_discussion">False</property>
   <property name="default_view">compact_view</property>
   <property name="view_methods">
@@ -34,8 +34,8 @@
     url_expr="string:${object_url}/edit" visible="True">
     <permission value="Modify portal content" />
   </action>
-  <action title="Categories" action_id="categories" category="object" condition_expr=""
+  <!-- <action title="Categories" action_id="categories" category="object" condition_expr=""
     url_expr="string:${object_url}/edit_categories" visible="True" i18n:attributes="title">
     <permission value="Modify portal content" />
-  </action>  
+  </action>   -->
 </object>

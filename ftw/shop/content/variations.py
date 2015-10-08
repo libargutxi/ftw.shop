@@ -272,6 +272,7 @@ class VariationConfig(object):
             self.context.getField('variation1_attribute').set(self.context, new_attr)
 
             # Initialize var data for newly added level with default values
+            import pdb; pdb.set_trace()
             for i in range(len(self.getVariation1Values())):
                 vardata = {}
                 for f in fields:

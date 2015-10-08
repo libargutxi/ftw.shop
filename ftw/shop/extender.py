@@ -54,6 +54,7 @@ class ShopItemExtender(object):
                 label = _(u"label_price", default=u"Price"),
                 description = _(u"desc_price", default=u""),
                 size=8,
+                visible={'view': 'invisible', 'edit': 'invisible'},
             ),
         ),
 
@@ -63,6 +64,7 @@ class ShopItemExtender(object):
             widget = atapi.BooleanWidget(
                 label = _(u"label_show_price", default=u"Show price"),
                 description = _(u"desc_show_price", default=u""),
+                visible={'view': 'invisible', 'edit': 'invisible'},
             ),
         ),
 
@@ -72,6 +74,7 @@ class ShopItemExtender(object):
             widget = atapi.StringWidget(
                 label = _(u"label_sku_code", default=u"SKU code"),
                 description = _(u"desc_sku_code", default=u""),
+                visible={'view': 'invisible', 'edit': 'invisible'},
             ),
         ),
 
@@ -126,6 +129,7 @@ class ShopItemExtender(object):
                 description = _(u"desc_vat_rate", default=u"Please select the value-added tax rate for this item."),
                 size=8,
                 format='select',
+                visible={'view': 'invisible', 'edit': 'invisible'},
             ),
             vocabulary_factory = 'ftw.shop.VATRatesVocabulary',
         ),
