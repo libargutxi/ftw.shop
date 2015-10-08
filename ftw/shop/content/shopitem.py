@@ -150,7 +150,7 @@ ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
         atapi.ReferenceField(
             'supplier',
             required = 0,
-            languageIndependent=True,
+            languageIndependent=False,
             relationship = 'item_supplier',
             vocabulary_factory="ftw.shop.suppliers_vocabulary",
             widget = atapi.ReferenceWidget(
