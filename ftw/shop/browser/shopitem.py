@@ -405,7 +405,7 @@ class EditVariationsView(BrowserView):
             # At this point the form has already been validated,
             # so uniqueness of sku codes is ensured
             data['hasUniqueSKU'] = True
-            data['test'] = form.get("%s-test" % variation_code)
+            data['stock'] = form.get("%s-stock" % variation_code)
             return data
 
 
