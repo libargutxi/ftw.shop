@@ -188,7 +188,7 @@ def SuppliersVocabulary(context):
     """
     # context is the portal config options, whose context is the portal
     catalog = getToolByName(context, 'portal_catalog')
-    suppliers = catalog(portal_type="Supplier")
+    suppliers = catalog(portal_type="Supplier", sort_on='sortable_title')
     items = [(brain.UID, brain.Title) for brain in suppliers]
     terms = [SimpleTerm(value=pair[0],
                         token=pair[0],
