@@ -1,4 +1,4 @@
-jQuery(function ($) {
+(function ($) {
     // Add item to cart through AJAX request
     var currency = "";
     $.get('selected_currency_name', function(data){
