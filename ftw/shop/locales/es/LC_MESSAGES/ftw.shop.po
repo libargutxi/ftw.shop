@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2015-04-17 13:28+0000\n"
-"PO-Revision-Date: 2016-01-07 11:18+0100\n"
+"PO-Revision-Date: 2016-02-17 12:56+0100\n"
 "Last-Translator: Enny Rodriguez <administrador@femto.com.ve>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -182,7 +182,7 @@ msgstr "Precio"
 #: browser/templates/checkout/order_review.pt:57
 #: browser/templates/mail/order_confirmation.pt:98
 msgid "cart_header_product"
-msgstr "Producto"
+msgstr "Referencia"
 
 #. Default: "Quantity"
 #: browser/templates/cart_edit.pt:29
@@ -725,7 +725,7 @@ msgstr "Paso Dirección de envío"
 #: browser/templates/checkout/order_review.pt:83
 #: browser/templates/mail/order_confirmation.pt:126
 msgid "label_shipping_rate"
-msgstr ""
+msgstr "Gastos de envio (Nota: excepto Canarias, Ceuta y Melilla. Consúltenos)"
 
 #. Default: "Shipping rate calculator"
 #: interfaces.py:239
@@ -737,7 +737,7 @@ msgstr ""
 #: browser/templates/checkout/order_review.pt:86
 #: browser/templates/mail/order_confirmation.pt:129
 msgid "label_shipping_taxes"
-msgstr ""
+msgstr "Gastos Administrativos"
 
 #. Default: "Shop configuration"
 #: browser/controlpanel.py:61

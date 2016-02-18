@@ -217,7 +217,8 @@ class ShoppingCartAdapter(object):
                 return False
 
             variation_pretty_name = varConf.getPrettyName(variation_code)
-            item_title = '%s - %s' % (context.Title(), variation_pretty_name)
+            #item_title = '%s - %s' % (context.Title(), variation_pretty_name)
+            item_title = '%s - %s' % (variation_pretty_name, varConf.getVariationDict()[variation_code]['description'].strip())
             price = Decimal(variation_dict[variation_code]['price'])
             # add item to cart
             if item is None:

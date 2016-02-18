@@ -15,7 +15,6 @@
           <li tal:content="customer/street1"></li>
           <li tal:content="customer/street2"></li>
           <li tal:content="python:str(customer['zipcode']) + ' ' + customer['city']"></li>
-          <li tal:content="customer/country|nothing"></li>
           <li><br/></li>
 
           <li><span i18n:translate="label_email">Email</span>: <span tal:content="customer/email"/></li>
