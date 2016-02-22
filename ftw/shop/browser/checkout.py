@@ -219,9 +219,9 @@ class InvoicePaymentProcessor(BasePaymentProcessor):
 
     external = False
     url = None
-    title = "Gegen Rechnung"
+    title = "Transferencia bancaria"
     image = """<img src="++resource++ftw-shop-resources/einzahlungsschein.png" />"""
-    description = """<em>Bezahlung gegen Rechnung</em>"""
+    description = """<em>Transferencia bancaria</em>"""
 
     def available(self):
         return True

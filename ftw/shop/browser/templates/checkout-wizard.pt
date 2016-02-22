@@ -1,5 +1,5 @@
-<ul class="wizard-steps">
-    <li tal:repeat="step view/activeSteps"
+<ul role="tablist" class="wizard-steps">
+    <li role="presentation" tal:repeat="step view/activeSteps"
         class="wizard-step-link"
         tal:attributes="class python:'wizard-step-link' + ((step is view.currentStep) and ' selected' or '')">
         <a tal:omit-tag="python:not step.available or step is view.currentStep"

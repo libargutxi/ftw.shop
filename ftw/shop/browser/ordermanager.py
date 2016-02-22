@@ -448,7 +448,7 @@ class OrderManagerView(BrowserView):
 
         mail_subject = self.shop_config.mail_subject
         if not mail_subject:
-            mail_subject = u'Your Webshop Order'
+            mail_subject = u'Your Neurtek Order'
         mail_subject = translate(mail_subject, domain='ftw.shop',
                                  context=self.request, default=mail_subject)
 
@@ -467,7 +467,7 @@ class OrderManagerView(BrowserView):
         customer_name = "%s %s" % (order.customer_firstname,
                                    order.customer_lastname)
         customer_address = formataddr((customer_name, order.customer_email))
-        mail_subject = '[%s] Order %s by %s' % (self.shop_config.shop_name,
+        mail_subject = '[%s] Pedido %s por %s' % (self.shop_config.shop_name,
                                                order.order_id,
                                                customer_name)
 

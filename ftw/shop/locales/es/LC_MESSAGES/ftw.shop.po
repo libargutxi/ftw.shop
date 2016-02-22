@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2015-04-17 13:28+0000\n"
-"PO-Revision-Date: 2016-02-17 12:56+0100\n"
+"PO-Revision-Date: 2016-02-19 10:34+0100\n"
 "Last-Translator: Enny Rodriguez <administrador@femto.com.ve>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1127,7 +1127,7 @@ msgstr "Número de orden"
 #. Default: "Thank you for your order in our shop on the ${date}"
 #: browser/templates/mail/order_confirmation.pt:20
 msgid "txt_thankyou"
-msgstr "Gracias por su pedido en nuestra tienda el día ${fecha}"
+msgstr "Gracias por su pedido en nuestra tienda el día ${date}"
 
 #. Default: "Dear"
 #: browser/templates/mail/order_confirmation.pt:14

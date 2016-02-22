@@ -106,6 +106,7 @@
                                     <th i18n:translate="label_sku_code_required">SKU code</th>
                                     <th i18n:translate="label_description">Description</th>
                                     <th i18n:translate="label_stock">stock</th>
+                                    <th i18n:translate="label_product_code">Product Code (ERP)</th>
                                     <th i18n:translate="label_accesorio">accesorio</th>
                                 </tr>
                             </thead>
@@ -140,6 +141,12 @@
                                         <input type="text" class="width100"
                                                tal:attributes="name string:${vcode}-stock;
                                                                value python:varConf.getVariationData(v1idx, None, 'stock')"/>
+                                    </td>
+
+                                    <td>
+                                        <input type="text" class="width100"
+                                               tal:attributes="name string:${vcode}-product_code;
+                                                               value python:varConf.getVariationData(v1idx, None, 'product_code')"/>
                                     </td>
                                     <td width="1%" class="centered">
                                         <input type="checkbox" class="varActiveCheckbox"
