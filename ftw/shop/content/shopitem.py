@@ -35,12 +35,22 @@ from ftw.shop.interfaces import IShopItem, IBuyable
 
 ShopItemSchema = ATContentTypeSchema.copy() + atapi.Schema((
 
+        atapi.StringField(
+            'custom_title',
+            required = 0,
+            widget = atapi.StringWidget(
+                label = _(u"label_custom_title", default=u"Custom Title"),
+                description = _(u"desc_custom_title", default=u""),
+                ),
+            ),
+
         atapi.ImageField(
             'image',
             required=False,
             languageIndependent=True,
             widget = atapi.ImageWidget(
                 label = _(u"label_image", default=u"Image"),
+
             ),
             storage=AnnotationStorage(),
                 sizes= {'large': (768, 768),
