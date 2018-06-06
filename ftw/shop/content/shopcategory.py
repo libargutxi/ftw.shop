@@ -27,6 +27,15 @@ from ftw.shop.content.categorizeable import Categorizeable
 
 
 ShopCategorySchema = ATFolderSchema.copy() + atapi.Schema((
+
+        atapi.StringField(
+            'custom_title',
+            required = 0,
+            widget = atapi.StringWidget(
+                label = _(u"label_custom_title", default=u"Custom Title"),
+                description = _(u"desc_custom_title", default=u""),
+                ),
+            ),
         atapi.ReferenceField(
             'supplier',
             required = 0,
